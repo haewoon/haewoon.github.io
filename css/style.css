@@ -255,6 +255,12 @@ a:focus {
   border-bottom: 1px dotted blue; 
   text-decoration: none;
 }
+
+.twitterblue {
+  text-decoration: none;
+  color:#428bca;
+}
+
 .dotted:hover {
   color: red;
   border-bottom: 1px solid red;
