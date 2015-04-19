@@ -4787,3 +4787,7 @@ footer p {
 		
 		
 	}
+
+  .venue {
+      background: linear-gradient(transparent 30%, #fbd 30%);
+  }
