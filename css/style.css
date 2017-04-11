@@ -6,46 +6,6 @@ Build: 1.0
 http://www.andreagalanti.it
 */
 
-.img-circle {
-    border-radius: 50%;
-    width:100px;
-}
-
-ul.collaborators li {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  position: relative;
-}
-
-span.col-name {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  height: 100px;
-  left: 50;
-  position: absolute;
-  top: 0;
-  width: 100px;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;    
-}
-
-span.col-name span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-
-ul.collaborators li:hover span.col-name {
-  opacity: 1;
-}
-
 @font-face {
   font-family: 'Lato';
   src: url('../fonts/lato/lato-black.eot');
