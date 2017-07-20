@@ -9,6 +9,15 @@ http://www.andreagalanti.it
 .pdf {color:#e60000;}
 .ppt {color:#FF8000;}
 
+.label-cj {background-color:#47885e;}
+.label-net {background-color:#007bbb;}
+.label-sm {background-color:#ea5506;}
+.label-hci {background-color:#fcc800;}
+.label-game {background-color:#e4007f;}
+.label-deep {background-color:#426579;}
+.label-css {background-color:#946243;}
+.label-rec {background-color:#8da0b6;}
+
 .tag { color: #999; font-size: 80%; font-weight: 300; display: inline-block; padding: 0 2px; border: 1px solid #bbb; border-radius: 3px; }
 
 .img-circle {
