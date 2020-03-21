@@ -12,7 +12,7 @@
         var downloadTimer = setInterval(function(){
         if(timeleft < 0){
             timeleft = 10;
-            $("#rb").load(location.href+" #rb");
+            // $("#rb").load(location.href+" #rb");
         }
         document.getElementById("progressBar").value = 10 - timeleft;
         timeleft -= 1;
