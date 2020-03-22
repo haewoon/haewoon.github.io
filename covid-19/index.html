@@ -18,6 +18,13 @@
         timeleft -= 1;
         }, 1000);    
     </script>
+    <script>
+        function reload_js(src) {
+            $('script[src="' + src + '"]').remove();
+            $('<script>').attr('src', src).appendTo('head');
+        }
+        reload_js('https://platform.twitter.com/widgets.js');        
+    </script>    
     <script type="text/javascript">
     function viewAll() {
         document.getElementById('rb').innerHTML = '<a class="twitter-timeline" data-width="1024" data-height="1000" data-theme="dark" href="https://twitter.com/haewoon/lists/ministries-of-health?ref_src=twsrc%5Etfw">A Twitter List by haewoon</a>';
@@ -38,13 +45,6 @@
         document.getElementById('rb').innerHTML = '<a class="twitter-timeline" data-width="1024" data-height="1000" data-theme="dark" href="https://twitter.com/haewoon/lists/ministries-of-health-oth?ref_src=twsrc%5Etfw">A Twitter List by haewoon</a>';
         reload_js('https://platform.twitter.com/widgets.js');
     }
-    </script>
-    <script>
-        function reload_js(src) {
-            $('script[src="' + src + '"]').remove();
-            $('<script>').attr('src', src).appendTo('head');
-        }
-        reload_js('https://platform.twitter.com/widgets.js');        
     </script>
     <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>   -->
 </head>
