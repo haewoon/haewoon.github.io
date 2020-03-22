@@ -33,6 +33,11 @@
         document.getElementById('rb').innerHTML = '<a class="twitter-timeline" data-width="1024" data-height="1000" data-theme="dark" href="https://twitter.com/haewoon/lists/ministries-of-health-ar?ref_src=twsrc%5Etfw">A Twitter List by haewoon</a>';
         reload_js('https://platform.twitter.com/widgets.js');
     }
+
+    function viewOt() {
+        document.getElementById('rb').innerHTML = '<a class="twitter-timeline" data-width="1024" data-height="1000" data-theme="dark" href="https://twitter.com/haewoon/lists/ministries-of-health-oth?ref_src=twsrc%5Etfw">A Twitter List by haewoon</a>';
+        reload_js('https://platform.twitter.com/widgets.js');
+    }
     </script>
     <script>
         function reload_js(src) {
@@ -55,9 +60,10 @@
         <p>
             <!-- <a href="#" class="badge badge-default">Default</a> -->
             <a href="#" onclick="viewAll();return false;" class="badge badge-primary">All</a>
-            <!-- <a href="#" class="badge badge-secondary">English</a> -->
+            
             <a href="#" onclick="viewEn();return false;" class="badge badge-success">English</a>
             <a href="#" onclick="viewAr();return false;" class="badge badge-warning">Arabic</a>
+            <a href="#" onclick="viewOt();return false;" class="badge badge-secondary">Others</a>
         </p>
         <progress value="0" max="10" id="progressBar"></progress>
         <div id="rb">
