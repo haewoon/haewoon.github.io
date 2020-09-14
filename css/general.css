@@ -131,7 +131,7 @@ margin: auto;
 	font-size: 80px;
 	/* font-family: arvo; */
 	font-family: 'Roboto Slab', serif;
-	font-weight: 300;
+	/* font-weight: 300; */
 	letter-spacing: 4px;
 }
 
@@ -287,9 +287,9 @@ color: #ECEBEB;
 }
 
 .navbar-brand {
-	font-family: arvo;
-	letter-spacing: 3px;
-	font-weight: 400 !important;
+	font-family: 'Roboto Slab', serif;
+	letter-spacing: 1px;
+	font-weight: 500 !important;
 }
 
 .lead {
@@ -321,7 +321,7 @@ color: #ECEBEB;
 .intro-message > h1 {
 	margin: 0;
 	font-size: 5em;
-	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	letter-spacing: 3px;
 }
@@ -335,7 +335,7 @@ color: #ECEBEB;
 .intro-message > h3 {
 	margin: 0;
 	font-size: 2.8em;
-	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	letter-spacing: 0px;
 	margin-top: 10px;
