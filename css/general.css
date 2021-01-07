@@ -208,6 +208,18 @@ filter: alpha(opacity=95) !important;
 	background: rgba(204, 204, 204, 0);
 }
 
+.mybutton_orange{
+	border: 1px solid #e27e0c;
+	color: #fff;
+	background-color:#e27e0c;
+}
+
+.mybutton_orange:hover{
+	border: 1px solid #e27e0c;
+	color: #e27e0c !important;
+	background: rgba(204, 204, 204, 0);
+}
+
 .button_down img {
 width: 50px;
 	
