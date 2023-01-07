@@ -8,6 +8,7 @@ http://www.andreagalanti.it
 
 .pdf {color:#e60000;}
 .ppt {color:#FF8000;}
+.y-highlight {color:#fcc800}
 
 .label-cj {background-color:#47885e;}
 .label-net {background-color:#007bbb;}
@@ -313,8 +314,8 @@ color: #ECEBEB;
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	color: #f8f8f8;
-	background: url(../img/intro/mbs.jpg) no-repeat center center;
+	color: #f8f8f8; /*#f8f8f8;*/
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/intro/about_iu-drone-shot_fall.jpg) no-repeat center center;
 	background-size: cover;
 	text-align: center;
 	font-family: 'Roboto', serif;
