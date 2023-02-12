@@ -221,6 +221,18 @@ filter: alpha(opacity=95) !important;
 	background: rgba(204, 204, 204, 0);
 }
 
+.mybutton_download{
+	border: 1px solid rgb(0, 163, 8);
+	color: #fff;
+	background-color:#00a208;
+}
+
+.mybutton_download:hover{
+	border: 1px solid #00a208;
+	color: #00a208 !important;
+	background: rgba(0, 163, 8, 0);
+}
+
 .button_down img {
 width: 50px;
 	
