@@ -84,6 +84,26 @@
       text-underline-offset: 2px;
     }
     a:hover { text-decoration-color: var(--accent); }
+    .scholar-line {
+      color: var(--ink-soft);
+      font-size: 14px;
+      margin: 0 0 28px;
+    }
+    .scholar-line a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--ink-faint);
+      padding-bottom: 1px;
+    }
+    .scholar-line a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+    .scholar-line strong { font-variant-numeric: tabular-nums; font-weight: 600; }
+    .scholar-line .sep { color: var(--ink-faint); margin: 0 4px; }
+    .scholar-line .updated {
+      margin-left: 6px;
+      color: var(--ink-faint);
+      font-size: 12px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+    }
     nav.links {
       display: flex;
       flex-wrap: wrap;
@@ -132,6 +152,15 @@
     <p class="bio">
       Most of what I do publicly &mdash; papers, news, openings &mdash; lives on the lab
       site. This page is just a quick way to find me.
+    </p>
+
+    <p class="scholar-line">
+      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
+        <strong data-stat="citations">22,708</strong> citations
+        <span aria-hidden="true" class="sep">·</span>
+        <strong data-stat="h_index">47</strong> h-index
+      </a>
+      <span class="updated">(<span data-stat="updated">May 2026</span>)</span>
     </p>
 
     <nav class="links" aria-label="Primary">
