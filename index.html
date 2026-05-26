@@ -1,1002 +1,149 @@
- <!-- FlatFy Theme - Andrea Galanti /-->
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
-    <meta name="author" content="">
-
-    <title>Haewoon Kwak - Associate Professor at Indiana University Bloomington</title>
-
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS-->
-    <link href="css/general.css" rel="stylesheet">
-	
-	 <!-- Owl-Carousel -->
-    <link href="css/custom.css" rel="stylesheet">
-	<link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	
-	<!-- Magnific Popup core CSS file -->
-	<link rel="stylesheet" href="css/magnific-popup.css"> 	
-
-<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
-    <!-- Custom Google Web Font -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,300,700,300italic,400&subset=latin' rel='stylesheet' type='text/css'>
-	<!-- <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'> -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
-	
-	<script src="js/modernizr-2.6.2.min.js"></script>  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139435016-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-139435016-1');
-</script>  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haewoon Kwak</title>
+  <meta name="description" content="Haewoon Kwak — Associate Professor at the Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington. Co-director of SoDA Lab." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;1,400&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;1,400&display=swap" />
+  </noscript>
+  <style>
+    :root {
+      --paper: #fdfcf9;
+      --ink: #1a1a1a;
+      --ink-soft: #525252;
+      --ink-faint: #a3a3a3;
+      --rule: #ece4d2;
+      --accent: oklch(0.55 0.20 250);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+    }
+    main {
+      max-width: 560px;
+      width: 100%;
+    }
+    .photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 0 28px;
+    }
+    h1 {
+      font-family: "Spectral", "Newsreader", Georgia, serif;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+    .role {
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      font-size: 15px;
+    }
+    .bio {
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+    }
+    .bio em {
+      font-family: "Spectral", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in oklch, var(--accent) 30%, transparent);
+      text-underline-offset: 2px;
+    }
+    a:hover { text-decoration-color: var(--accent); }
+    nav.links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav.links a {
+      color: var(--ink);
+      text-decoration: none;
+      padding: 4px 0;
+    }
+    nav.links a:hover { color: var(--accent); }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--ink-faint);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+    }
+  </style>
 </head>
+<body>
+  <main>
+    <img class="photo" src="img/haewoon_kwak_informal_270.jpg" alt="Haewoon Kwak" width="96" height="96" />
 
-<body id="home">
+    <h1>Haewoon Kwak</h1>
 
-	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
-	
-	<!-- FullScreen -->
-    <div class="intro-header">
-		<!-- <img src="https://sis.smu.edu.sg/sites/all/themes/smubase_nw2_rev/svg/logo-d-smu.svg" width="200"/> <br/> -->
-		<div class="col-xs-12 text-center abcen1">
-			<!-- <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s"><span style="color:orange;">KWAK</span> Haewoon</h1> -->
-            <!-- <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"></span><i>Social computing</i></h3> -->
-            <div class="row">
-                <div class="col-md-3 col-md-offset-2 align-self-center">
-                    <img class="img-circle" src="img/haewoon_kwak_informal_270.jpg">
-                </div>
-                <div class="col-md-5 text-left align-self-center">
-                    <b>Dr. Haewoon Kwak</b> holds the position of Associate Professor at the <a href="https://luddy.indiana.edu/" class="y-highlight"><b>Luddy School of
-                        Informatics, Computing, and Engineering, Indiana University Bloomington</b></a>. He co-directs the <a href="http://soda-labo.github.io"  class="label label-sm">Soda Lab</a> research group alongside <a href="http://jisun.me" class="y-highlight">Prof. An</a>, with a primary objective of investigating social phenomena through the use of large-scale data and computational tools. Their research aims to address significant societal challenges.</br></br>
+    <p class="role">
+      Associate Professor, Luddy School of Informatics, Computing, and Engineering,
+      Indiana University Bloomington
+    </p>
 
-                    Dr. Kwak's research activities focus on the intersection of network science, machine learning, and computational social science across various domains, including news media, online games, social media, sports, politics, among others. One of his major contributions to the field of social media research is as the lead author of the highly cited paper titled "What is Twitter, a social network, or news media?" (WWW 2010), which has received over <a href="https://scholar.google.com/scholar?oi=bibs&hl=en&cites=420603684741729498" class="twitterblue"><u>9,500 citations</u></a>. His work has been highlighted by various reputable media outlets such as Nature News, ACM Tech News, BBC, The Times, The Economist, Slate, and Scientific American, among others.
-                    Additionally, he has served as a member of the program committee or senior program committee for several significant computer science and computational social science conferences.</div>
-                </div>
-			<ul class="list-inline intro-social-buttons">
-				<li><a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ&hl=ko" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Google Scholar</span></a>
-				</li>
-				<li><a href="http://soda-labo.github.io" class="btn  btn-lg mybutton_orange wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Soda Lab @ IU</span></a>
-				</li>
-				<li id="download" ><a href="PDFs/haewoon_CV.pdf" class="btn  btn-lg mybutton_download wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">CV</span></a>
-				</li>				
-			</ul>
-		</div>    
-        <!-- /.container -->
-        
-		<div class="col-xs-12 text-center abcen wow fadeIn">
-			<div class="button_down "> 
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img class="img_scroll" src="img/icon/circle.png" alt=""> </a>
-			</div>
-		</div>
-       
-    </div>
-	
-	<!-- NavBar-->
-	<nav class="navbar-default" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#home"><span style="color:orange;">Haewoon</span> Kwak</a>
-			</div>
+    <p class="bio">
+      I co-direct
+      <a href="https://soda-labo.github.io/">SoDA Lab</a>
+      with <a href="https://jisun.me">Jisun An</a>, where we study
+      <em>how people behave online and how AI is reshaping those spaces</em>.
+      My research sits at the intersection of network science, machine learning,
+      and computational social science.
+    </p>
 
-			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-				<ul class="nav navbar-nav">
-					<!-- <li class="menuItem"><a href="#whatis">News</a></li> -->
-					<li class="menuItem"><a href="#useit">Research areas</a></li>
-					<li class="menuItem"><a href="#publication">Publications</a></li>
-					<li class="menuItem"><a href="#credits">Teaching</a></li>
-					<li class="menuItem"><a href="#contact">Contact</a></li>
-				</ul>
-			</div>
-		   
-		</div>
-	</nav> 
-<!-- 	
-	<div id="whatis" class="content-section-b" style="border-top: 0">
-		<div class="container">
+    <p class="bio">
+      Most of what I do publicly &mdash; papers, news, openings &mdash; lives on the lab
+      site. This page is just a quick way to find me.
+    </p>
 
-			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                            
-				<h2>News</h2>
+    <nav class="links" aria-label="Primary">
+      <a href="https://soda-labo.github.io/">SoDA Lab</a>
+      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">Google Scholar</a>
+      <a href="PDFs/haewoon_CV.pdf">CV</a>
+      <a href="mailto:hwkwak@iu.edu">Email</a>
+    </nav>
 
-				<p class="lead" style="margin-top:0">Recent updates in my professional life.</p>
-				
-			</div>
-			
-			<div class="row">
-				<div class="col-sm-4 wow fadeInDown text-center">
-					<img class="rotate" width="100px" src="img/icon/merlion.svg" alt="Generic placeholder image">
-					<h3>Join SMU</h3>
-					<p class="lead">I'll join School of Information Systems, Singapore Management University as an Associate Professor since Oct 1, 2020.</p>
-				</div>
-                <div class="col-sm-4 wow fadeInDown text-center">
-                  <img class="rotate" width="100px" src="img/icon/tweet.svg" alt="Generic placeholder image">
-                  <h3>Paper accepted in ICWSM'21</h3>
-                  <p class="lead">Our paper on news-to-tweet is accepted in ICWSM'21</p>
-                </div>
-                <div class="col-sm-4 wow fadeInDown text-center">
-                  <img class="rotate" width="100px" src="img/icon/news.svg" alt="Generic placeholder image">
-                  <h3>Paper presented in WebSci'20</h3>
-                  <p class="lead">Our paper on media framing is presented in <a href="http://websci20.webscience.org" class="twitterblue">WebSci'20</a>.</p>
-                </div>
-            </div>
-
-            <div class="row tworow">
-                <div class="col-sm-4 wow fadeInDown text-center">
-                  <img  class="rotate" src="img/icon/medal.svg" alt="Generic placeholder image">
-                   <h3>7,500+/14,000+ Citations</h3>
-                 <p class="lead">Our "What is Twitter, a social network or a news media? (WWW'10)" has been cited > <a class="twitterblue" href="http://scholar.google.com/scholar?oi=bibs&cites=420603684741729498&as_sdt=5">7,500+ times</a>, and my total citations are <a href="https://scholar.google.com/citations?user=M6i3Be0AAAAJ" class="twitterblue">14,000+.</a></p>
-                </div>   
-
-                <div class="col-sm-4 wow fadeInDown text-center">
-                  <img class="rotate" width="100px" src="img/icon/gantt.svg" alt="Generic placeholder image">
-                  <h3>Paper presented in ACL'20</h3>
-                  <p class="lead">Our work on media profiling is presented in ACL'20</a></p>
-                </div>            
-                <div class="col-sm-4 wow fadeInDown text-center">
-                  <img  class="rotate" width="100px" src="img/icon/search.svg" alt="Generic placeholder image">
-                   <h3>Paper presented in ICWSM'20</h3>
-                 <p class="lead">Our work on online and offline status is presented in ICWSM'20</p>
-                </div>                          
-            </div>
-		</div>
-	</div> -->
-	
-    <div id ="useit" class="content-section-a">
-
-        <div class="container">
-			
-            <div class="row">
-			
-				<div class="col-sm-6 pull-right wow fadeInRightBig">
-                    <img class="img-responsive " width="900px" src="img/twitter_diffusion_w900_30.jpg" alt="">
-                </div>
-				
-                <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">   
-                    <h3 class="section-heading">Online social networks and social media</h3>
-					<div class="sub-title lead3">How are they changing people's lives?<br></div>
-                    <p class="lead">
-						Structures and dynamics of every system, from an online social networking service to a football team, interact with each other.  Retweets in Twitter go along with follow relationship and those lead to an act of following to the original author.  Similarly, positions of football players and passes between them are strongly related.  Network science is an interdisciplinary research field to examine underlying structures, dynamics therein, and relationship between two.  
-					</p>
-                    <ul class="descp lead2">
-						<li><i class="glyphicon glyphicon-resize-horizontal"></i><a href="#"  class="twitterblue">Interaction between offline and online status (ICWSM'20)</a></i></li>						
-                        <li><i class="glyphicon glyphicon-flag"></i><a href="http://arxiv.org/abs/1603.00646" class="twitterblue">Social responses to Charlie Hebdo incidents (ICWSM'16) </a></li>                
-						<li><i class="glyphicon glyphicon-scissors"></i>Unfollow behavior (<a href="http://dl.acm.org/authorize?419779" class="twitterblue">CHI'11</a>, <a href="http://an.kaist.ac.kr/~haewoon/papers/2012-icwsm-poster.pdf" class="twitterblue">ICWSM'12</a>, & <a href="http://dl.acm.org/authorize?6892114" class="twitterblue">CSCW'13</a>)</li>
-						<li><i class="glyphicon glyphicon-bookmark"></i><a href="http://dl.acm.org/authorize?237581" class="twitterblue">The Twitter study (WWW'10)  </a></li>						
-						<li><i class="glyphicon glyphicon-bell"></i><a href="http://dl.acm.org/authorize?256322" class="twitterblue">Inconsistency in community identification (IMC'09) </a></li>
-                    </ul>
-				</div>    
-            </div>
-        </div>
-        <!-- /.container -->
-    </div>
-
-    <div id="section_game" class="content-section-b">
-
-        <div class="container">
-
-			<div class="col-sm-6 pull-right wow fadeInRightBig">
-                <img class="img-responsive " src="img/ig_msi.jpg" alt="">
-            </div>
-		 
-            <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">   
-                <h3 class="section-heading">Game analytics</h3>
-                <div class="sub-title lead3">A miniature of the real world</div>
-                <p class="lead">Online game players interact with each other in various ways, as they do in the real world. More importantly, in-game actions could be easily quantified and logged in detail. The huge volume of behavioral data collected in online games help researchers study human nature in an unprecedented scale. 
-				</p>
-                <!--
-				<a class="btn btn-embossed btn-primary" href="#" role="button">View Details</a> 	-->				
-
-				<ul class="descp lead2">
-                    <li><i class="glyphicon glyphicon-user"></i><a href="https://ieeexplore.ieee.org/document/8359320" class="twitterblue">Regional trends in game avatars (IEEE Trans. Games'18)</a></li>				
-                    <li><i class="glyphicon glyphicon-off"></i><a href="https://arxiv.org/abs/1703.01500" class="twitterblue">What's happening at the end of the beta test? (WWW'17)</a></li>				
-                    <li><i class="glyphicon glyphicon-time"></i><a href="https://arxiv.org/abs/1702.08005" class="twitterblue">Change of important factors in user retention (WWW'17)</a></li>
-                    <li><i class="glyphicon glyphicon-eye-open"></i><a href="http://arxiv.org/abs/1504.02305" class="twitterblue">Toxic behavior in League of Legends (CHI'15)</a></li>                
-					<li><i class="glyphicon glyphicon-search"></i><a href="http://dl.acm.org/citation.cfm?id=2567987" class="twitterblue">Machine learning for detecting Cyberbullying in LoL (WWW'14)</a></li>
-					<li><i class="glyphicon glyphicon-minus-sign"></i><a href="http://arxiv.org/abs/1410.5185" class="twitterblue">Linguistic analysis of offensive language in LoL (EGG'14)</a></li>
-				</ul>
-
-			</div>  
-        </div>
-    </div>
-
-    <div id="section_news" class="content-section-a"> 
-		<div class="container">
-            <div class="row">
-                <div class="col-sm-6 wow fadeInLeftBig">
-                     <div id="owl-demo-1" class="owl-carousel">
-						<div class="item">
-							<img  class="img-responsive img-rounded" src="img/news_geography_na_30.jpg" alt="">
-						</div>
-					</div>       
-                </div>
-				
-                <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">   
-                    <h3 class="section-heading">Computational journalism</h3>
-					<div class="sub-title lead3">Is the world flat? -- We are finding answers from global news media</div>
-                    <p class="lead">
-						We are strongly relying on domestic news media to obtain information on foreign countries even in the era of social media.  Which countries are more frequently reported than others?  Which countries are more positively reported than others?  Such patterns unconsciously shape our worldview.  With large-scale databases from online news sites, what events are chosen and how they are reported can be quantitatively measured.    
-					</p>
-                    <ul class="descp lead2">
-						<li><i class="glyphicon glyphicon-list"></i><a href="https://www.aclweb.org/anthology/2020.acl-main.308/" class="twitterblue">Profiling of news media (ACL'20)</a></li>
-						<li><i class="glyphicon glyphicon-th"></i><a href="https://dl.acm.org/doi/10.1145/3394231.3397921?cid=81452618313" class="twitterblue">Framing of 1.5M NYTimes articles (WebSci'20)</a></li>
-                    	<li><i class="glyphicon glyphicon-globe"></i><a href="https://dl.acm.org/authorize.cfm?key=N655988" class="twitterblue">Media attention and public attention (TheWeb'18)</a></li>
-
-                        <li><i class="glyphicon glyphicon-globe"></i><a href="#" class="twitterblue">Media attention and disregard network (ASONAM'17)</a></li>
-
-                        <li><i class="glyphicon glyphicon-time"></i><a href="#" class="twitterblue">Characterization of temporal media attention (ICWSM'17)</a></li>
-                        <li><i class="glyphicon glyphicon-bullhorn"></i><a href="#" class="twitterblue">Estimation of Press freedom index (NECO'17)</a></li>                                            
-                        <li><i class="glyphicon glyphicon-picture"></i><a href="https://arxiv.org/abs/1603.04531" class="twitterblue">Deep learning to understand  news photo contents (NECO'16)</a></li>
-                        <li><i class="glyphicon glyphicon-header"></i><a href="http://arxiv.org/abs/1503.07921" class="twitterblue">Study on sentiment of news headlines (ICWSM'15)</a></li>                
-                        <li><i class="glyphicon glyphicon-globe"></i><a href="http://arxiv.org/abs/1410.3710" class="twitterblue">Analysis on foreign news coverage (C+J'14)</a></li>
-                    </ul>
-				</div>  			
-			</div>
-        </div>
-    </div>
-
-
-
-	<!-- Screenshot -->
-	<div id="publication" class="content-section-b">
-        <div class="container">
-	        <div class="row" >
-				<div class="col-md-6 col-md-offset-3 text-center wrap_title ">
-					<h2>Publications</h2>
-					<p class="lead" style="margin-top:0">Up-to-date publication list is available on <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ&hl=ko">Google Scholar</a>.</p>
-				</div>
-			</div>
-
-		    <div class="row wow bounceInUp" >
-    			<h3>Conference/Journal Papers</h3> 
-                <span class="label label-cj">computational journalism</span> 
-                <span class="label label-sm">social media analytics</span> 
-                <span class="label label-net">network science</span> 
-                <span class="label label-hci">HCI</span>
-                <span class="label label-game">game analytics</span>
-                <span class="label label-deep">deep learning</span>
-                <span class="label label-css">computational social science</span>
-                <span class="label label-rec">recommendation system</span>
-				<ul class="descp lead2">
-                    <li>
-                        <h4><a href="#">Understanding Effects of Editing Tweets for News Sharing by Media
-                            Accounts through a Causal Inference Framework <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Kunwoo Park, <span style="text-decoration: underline;">Haewoon Kwak</span>, Jisun An, Sanjay Chawla<br/>
-                            <span style="font-style:italic">Accepted in ICWSM 2021</span><br/>
-                            <span class="label label-cj">computational journalism</span> <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                    <li>
-                        <h4><a href="https://dl.acm.org/doi/10.1145/3394231.3397921?cid=81452618313">A Systematic Media Frame Analysis of 1.5 Million New York Times Articles from 2000 to 2017 <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            <span style="text-decoration: underline;">Haewoon Kwak</span>, Jisun An, Yong-Yeol Ahn<br/>
-                            <span style="font-style:italic">Proceedings of the 12th ACM Conference on Web Science, 305-314, 2020</span><br/>
-                            <span class="label label-cj">computational journalism</span> <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                    <li>
-                        <h4><a href="https://www.aclweb.org/anthology/2020.acl-main.308/">What Was Written vs. Who Read It: News Media Profiling Using Text Analysis and Social Media Context <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Ramy Baly, Georgi Karadzhov, Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span>, Yoan Dinkov, Ahmed Ali, James Glass, Preslav Nakov<br/>
-                            <span style="font-style:italic">Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, 3364-3374, 2020</span><br/>
-                            <span class="label label-cj">computational journalism</span> <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                    <li>
-                        <h4><a href="https://www.aaai.org/ojs/index.php/ICWSM/article/view/7321">“Trust Me, I Have a Ph.D.”: A Propensity Score Analysis on the Halo Effect of Disclosing One's Offline Social Status in Online Communities <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Kunwoo Park, <span style="text-decoration: underline;">Haewoon Kwak</span>, Hyunho Song, Meeyoung Cha<br/>
-                            <span style="font-style:italic">Proceedings of the International AAAI Conference on Web and Social Media, 14(1), 534-544, 2020</span><br/>
-                            <span class="label label-sm">social media analytics</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>                       
-                    <li>
-                        <h4><a href="https://www.aaai.org/ojs/index.php/ICWSM/article/view/7362">Empirical Evaluation of Three Common Assumptions in Building Political Media Bias Datasets <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Soumen Ganguly, Juhi Kulshrestha, Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                            <span style="font-style:italic">Proceedings of the International AAAI Conference on Web and Social Media, 14(1), 939-943, 2020</span><br/>
-                            <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>                       
-                    <li>
-                        <h4><a href="https://dl.acm.org/doi/10.1145/3366423.3380074?cid=81452618313">Are These Comments Triggering? Predicting Triggers of Toxicity in Online Discussions <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Hind Almerekhi, <span style="text-decoration: underline;">Haewoon Kwak</span>, Bernard Jim Jansen, Joni Salminen<br/>
-                            <span style="font-style:italic">Proceedings of The Web Conference, pp 3033–3040, 2020</span><br/>
-                            <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>                     
-                    <li>
-                        <h4><a href="https://www.aclweb.org/anthology/D19-3038/">Tanbih: Get To Know What You Are Reading <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Yifan Zhang, Giovanni Da San Martino, Alberto Barrón-Cedeño, Salvatore Romeo, Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span>, Todor Staykovski, Israa Jaradat, Georgi Karadzhov, Ramy Baly, Kareem Darwish, James Glass, Preslav Nakov<br/>
-                            <span style="font-style:italic">Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP): System Demonstrations, 2019</span><br/>
-                            <i class="glyphicon glyphicon-share"></i><a href="https://www.tanbih.org/">Online demo site</a> <br/>
-                            <span class="label label-cj">computational journalism</span>
-                    	</blockquote>
-                    </li>                     
-                    <li>
-                        <h4><a href="https://arxiv.org/abs/1908.01352">Gender and Racial Diversity in Commercial Brands' Advertising Images on Social Media
-                            <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                            <span style="font-style:italic">Proceedings of the International Conference on Social Informatics (SocInfo), 2019</span><br/>
-                            <i class="glyphicon glyphicon-thumbs-up"></i><strong>Best paper award</strong><br/>
-                            <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>                    
-                    <li>
-                        <h4><a href="https://www.aaai.org/ojs/index.php/ICWSM/article/view/3210/3078/">Political Discussions in Homogeneous and Cross-Cutting Communication Spaces <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span>, Oliver Posegga, Andreas Jungherr<br/>
-                            <span style="font-style:italic">Proceedings of the 13th International AAAI Conference on Web and Social Media, pages 68-79, 2019</span><br/>
-                            <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                    <li>
-                        <h4><a href="https://dl.acm.org/doi/10.1145/3342220.3344933?cid=81452618313">Detecting Toxicity Triggers in Online Discussions <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Hind Almerekhi, <span style="text-decoration: underline;">Haewoon Kwak</span>, Bernard Jim Jansen, Joni Salminen<br/>
-                        <span style="font-style:italic">Proceedings of the 30th ACM Conference on Hypertext and Social Media, pp 291–292, 2019</span><br/>
-                        <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                    <li>
-                        <h4><a href="https://aaai.org/ocs/index.php/ICWSM/ICWSM18/paper/view/17839">Assessing the Accuracy of Four Popular Face Recognition Tools for Inferring Gender, Age, and Race <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Soon-gyo Jung, Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span>, Joni Salminen, Bernard Jim Jansen<br/>
-                        <span style="font-style:italic">Proceedings of the 12th International AAAI Conference on Web and Social Media, pages 624–627, 2018</span><br/>
-                        <span class="label label-deep">deep learning</span>
-                    	</blockquote>
-                    </li>
-                                        
-                    <li>
-                        <h4><a href="https://aaai.org/ocs/index.php/ICWSM/ICWSM18/paper/view/17885">Anatomy of Online Hate: Developing a Taxonomy and Machine Learning Models for Identifying and Classifying Hate in Online News Media <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                            Joni Salminen, Hind Almerekhi, Milica Milenković, Soon-gyo Jung, Jisun An,  <span style="text-decoration: underline;">Haewoon Kwak</span>, Bernard J. Jansen<br/>
-                        <span style="font-style:italic">Proceedings of the 12th International AAAI Conference on Web and Social Media, pages 330–339, 2018</span><br/>
-                        <span class="label label-sm">social media analytics</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                   <li>
-                        <h4><a href="https://drive.google.com/file/d/1y8XzlPWvrV9tblzkc8-RUcdmHqQlyVEJ/view?usp=sharing">Identifying Regional Trends in Avatar Customization <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        Peter Mawhorter, Sercan Şengün, <span style="text-decoration: underline;">Haewoon Kwak</span>, and D. Fox Harrell<br/>
-                        <span style="font-style:italic">IEEE Transactions on Games, Vol. 10, No. 2, May 2018 </span><br/>
-                        <span class="label label-deep">deep learning</span> <span class="label label-game">game analytics</span>
-                    	</blockquote>
-                    </li>
-
-                   <li>
-                        <h4><a href="https://aclanthology.coli.uni-saarland.de/papers/P18-1228/p18-1228">SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        Jisun An, <span style="text-decoration: underline;">Haewoon Kwak</span>, and Yong-Yeol Ahn<br/>
-                        <span style="font-style:italic"> Proceedings of The 56th Annual Meeting of the Association for Computational Linguistics (ACL) 2018 </span><br/>
-                        <span class="label label-deep">deep learning</span> <span class="label label-css">computational social science</span>
-                    	</blockquote>
-                    </li>
-
-                   <li>
-                        <h4><a href="https://dl.acm.org/authorize?N655988">What We Read, What We Search: Media Attention and Public Attention among 193 Countries <i class="fa fa-file-pdf-o pdf"></i> </a> <a href="https://www.slideshare.net/haewoon/what-we-read-what-we-search-media-attention-and-public-attention-among-193-countries"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote>
-                        <span style="text-decoration: underline;">Haewoon Kwak</span>, Jisun An, Joni Salminen, Soon-Gyo Jung and Bernard Jansen<br/>
-                        <span style="font-style:italic"> Proceedings of The Web Conference (WWW) 2018 </span><br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-net">network science</span> 
-                    	</blockquote>
-                    </li>
-
-
-                    <li>
-                        <h4><a href="https://dl.acm.org/citation.cfm?id=3176391">Fixation and Confusion: Investigating Eye-tracking Participants' Exposure to Information in Personas <i class="fa fa-file-pdf-o pdf"></i> </a></h4>
-                        <blockquote>
-                        Joni Salminen, Bernard J. Jansen, Jisun An, Soon-Gyo Jung, 	Lene Nielsen, and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">Proceedings of the 2018 Conference on Human Information Interaction &amp; Retrieval (CHIIR), 2018 </span><br/>
-                        <span class="label label-hci">HCI</span>
-                        </blockquote>
-                    </li> 
-
-                    <li>
-                        <h4><a href="https://dl.acm.org/authorize?N655293">What is Gab? A Bastion of Free Speech or an Alt-Right Echo Chamber? <i class="fa fa-file-pdf-o pdf"></i> </a></h4>
-                        <blockquote>
-                        Savvas Zannettou, Barry Bradlyn, Emiliano De Cristofaro, <span style="text-decoration: underline;">Haewoon Kwak</span>, Michael Sirivianos, Gianluca Stringhini, and Jeremy Blackburn<br/>
-                        <span style="font-style:italic">The Third International Workshop on Cybersafety, Online Harassment, and Misinformation, collocated with The Web Conference, 2018</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="https://www.newscientist.com/article/2161933-theres-an-alt-right-alt-twitter-and-its-filled-with-hate/" class="twitterblue">New Scientist</a>, and <a href="https://www.vice.com/en_uk/article/ywxb95/gab-is-the-alt-right-social-network-racists-are-moving-to" class="twitterblue">Vice</a><br/>                         
-                        <span class="label label-sm">social media analytics</span>
-                        </blockquote>
-                    </li> 
-
-                    <li>
-                        <h4><a href="https://link.springer.com/chapter/10.1007/978-3-319-67256-4_14">Convergence of Media Attention Across 129 Countries <i class="fa fa-file-pdf-o pdf"></i> </a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a>, Hassan Aldarbesti, and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">International Conference on Social Informatics (SocInfo), 2017</span><br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-net">network science</span> 
-                        </blockquote>
-                    </li>  
-
-                    <li>
-                        <h4><a href="https://link.springer.com/chapter/10.1007/978-3-319-67217-5_9">Multidimensional Analysis of the News Consumption of Different Demographic Groups on a Nationwide Scale <i class="fa fa-file-pdf-o pdf"></i> </a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a> and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">International Conference on Social Informatics (SocInfo), 2017</span><br/>
-                        <span class="label label-cj">computational journalism</span>
-                        </blockquote>
-                    </li>  
-
-                    <li>
-                        <h4><a href="https://arxiv.org/abs/1707.04941">Multiplex Media Attention and Disregard Network among 129 Countries <i class="fa fa-file-pdf-o pdf"></i> <a href="https://www.slideshare.net/haewoon/multiplex-media-attention-and-disregard-network-among-129-countries"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote>
-                        <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">The 2017 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM), Multidisciplinary track, 2017</span><br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-net">network science</span>
-                        </blockquote>
-                    </li>                  
-                    <li>
-                        <h4><a href="#">Demographics of News Sharing in Twitter <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote><a href="http://homepages.dcc.ufmg.br/~julio.reis/" class="twitterblue">Julio Reis</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a class="twitterblue" href="http://jisun.me">Jisun An</a>, <a href="http://johnnatan.me/" class="twitterblue">Johnnatan Messias</a>, and <a href="http://homepages.dcc.ufmg.br/~fabricio/" class="twitterblue">Fabrıcio Benevenuto</a><br/>
-                        <span style="font-style:italic">ACM Conference on Hypertext and Social Media (HT), 2017</span><br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-sm">social media analytics</span> 
-                        </blockquote>
-                    </li>  
-                    <li>
-                        <h4><a href="https://arxiv.org/abs/1704.01422">
-						Data-driven Approach to Measuring the Level of Press Freedom Using Media Attention Diversity from Unfiltered News <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a> and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">The 2nd workshop on NEws and publiC Opinion (NECO) collocated with ICWSM'17</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Picked as <a href="https://www.technologyreview.com/s/604158/the-best-of-the-physics-arxiv-week-ending-april-15-2017/" class="twitterblue">The Best of the Physics arXiv (week ending April 15, 2017)</a>  in MIT Technology Review<br/>
-                        <span class="label label-cj">computational journalism</span>
-                        </blockquote>
-                    </li>  				
-
-                    <li>
-                        <h4><a href="https://arxiv.org/abs/1704.01425">
-						What Gets Media Attention and How Media Attention Evolves Over Time - Large-scale Empirical Evidence from 196 Countries <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a> and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">The 11th International AAAI Conference on Web and Social Media (ICWSM) 2017</span><br/>
-                        <span class="label label-cj">computational journalism</span>
-                        </blockquote>
-                    </li>                        
-                    <li>
-                        <h4><a href="http://www.bernardjjansen.com/uploads/2/4/1/8/24188166/jansen_personas_chi2017.pdf">Persona Generation from Aggregated Social Media Data  <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote><a href="https://www.linkedin.com/in/soongyo" class="twitterblue">Soon-Gyo Jung</a>, <a href="http://jisun.me" class="twitterblue">Jisun An</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="https://www.linkedin.com/in/moeed/" class="twitterblue">Moeed Ahmad</a>, <a href="http://personas.dk/" class="twitterblue">Lene Nielsen</a>, and <a href="http://www.bernardjjansen.com/" class="twitterblue">Bernard J. Jansen</a><br/>
-                        <span style="font-style:italic">ACM Conference on Human Factors in Computing Systems 2017 (CHI2017) Work-In-Progress.</span><br/>
-                        <span class="label label-hci">HCI</span>
-                        </blockquote>
-                    </li>    
-
-                   <li>
-                        <h4><a href="https://arxiv.org/abs/1703.01500">
-						I Would Not Plant Apple Trees If the World Will Be Wiped: <br/>Analyzing Hundreds of Millions of Behavioral Records of Players During an MMORPG Beta Test <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a href="http://www.cse.buffalo.edu/~ahreumka/" class="twitterblue">Ah Reum Kang</a>, <a href="http://www.tid.es/research/researchers/j-blackburn" class="twitterblue">Jeremy Blackburn</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a href="http://www.hksecurity.net/" class="twitterblue">Huy Kang Kim</a><br/>
-                        <span style="font-style:italic">The 26th International World Wide Web (WWW) Conference Alternative track, 2017</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="https://www.newscientist.com/article/2124199-video-game-beta-test-reveals-how-we-might-act-if-the-world-ends/" class="twitterblue">New Scientist</a>, <a href="http://www.dailymail.co.uk/sciencetech/article-4309956/What-REALLY-happens-world-ends.html" class="twitterblue">Daily Mail</a>, <a href="http://www.iflscience.com/editors-blog/video-game-study-suggests-humans-get-more-peaceful-as-the-world-ends/" class="twitterblue">IFL Science</a>, <a href="http://www.pcgamer.com/researchers-use-mmo-beta-to-study-how-humanity-will-act-at-the-end-of-the-world/" class="twitterblue">PC Gamer</a>, <a href="http://massivelyop.com/2017/03/14/researchers-study-archeages-beta-wipe-for-real-world-apocalypse-behavior/" class="twitterblue">Massively OP</a>, <a href="https://www.4gamers.com.tw/news/detail/31647/researchers-use-mmo-beta-to-study-how-humanity-will-act-at-the-end-of-the-world" class="twitterblue">4Gamers Taiwan</a>, <a href="http://www.elconfidencial.com/tecnologia/2017-03-19/apocalipsis-fin-del-mundo-videojuego_1350357/" class="twitterblue">El Confidencial</a>, <a href="http://news.joins.com/article/21490870" class="twitterblue">Joongang Ilbo</a>, and so on.<br/>
-                        <span class="label label-game">game analytics</span>
-                        </blockquote>
-                    </li> 
-
-                   <li>
-                        <h4><a href="https://arxiv.org/abs/1702.08005">
-						Achievement and Friends: Key Factors of Player Retention Vary Across Player Levels in Online Multiplayer Games <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a href="http://kunwpark.kr/?ckattempt=1" class="twitterblue">Kunwoo Park</a>, Meeyoung Cha, <span style="text-decoration: underline;">Haewoon Kwak</span>, and Kuan-Ta Chen<br/>
-                        <span style="font-style:italic">The 26th International World Wide Web (WWW) Conference Alternative track, 2017</span><br/>
-                        <span class="label label-game">game analytics</span>
-                        </blockquote>
-                    </li>  				
-                    <li>
-                        <h4><a href="#">
-						Culturally-Grounded Analysis of Everyday Creativity in Social Media: A Case Study in Qatari Context <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a href="http://groups.csail.mit.edu/icelab/?q=user/2" class="twitterblue">D. Fox Harrell</a>, <a href="https://works.bepress.com/vieweg/" class="twitterblue">Sarah Vieweg</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://people.csail.mit.edu/culim/" class="twitterblue">Chong-U Lim</a>, <a href="http://www.sercansengun.com/" class="twitterblue">Sercan Sengun</a>, <a href="http://people.csail.mit.edu/jahanian/" class="twitterblue">Ali Jahanian</a>, and Pablo Ortiz <br/>
-                        <span style="font-style:italic">The 11th ACM Creativity &amp; Cognition (C&amp;C), 2017</span><br/>
-                        <span class="label label-hci">HCI</span>
-                        </blockquote>
-                    </li>  
-
-<!--
-                    <li>
-                        <h4><a href="https://www.dropbox.com/s/1hlfh750d8umozs/kwak2017hicss.pdf?dl=0">
-						Automatic Generation of Personas Using YouTube Social Media Data <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a class="twitterblue" href="http://www.bernardjjansen.com/">Jim Jansen</a><br/>
-                        <span style="font-style:italic">Hawaii International Conference on System Sciences (HICSS) 2017</span><br/>
-                        <span class="label label-hci">HCI</span>
-                        </blockquote>
-                    </li> 
--->
-                    <li>
-                        <h4><a href="https://www.dropbox.com/s/h9bzd2bbta5w6lq/%28p%29%2020160930-cj2016-daum-news.pdf?dl=0">Multidimensional Analysis of Gender and Age Differences in News Consumption <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a> and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-                        <span style="font-style:italic">Computation+Journalism Symposium 2016</span><br/>
-                        <span class="label label-cj">computational journalism</span>
-                        </blockquote>
-                    </li>   				
-                    <li>
-                        <h4><a href="http://www.nature.com/articles/srep32920?WT.feed_name=subjects_signs-and-symptoms">High correlation of Middle East respiratory syndrome spread with Google search and Twitter trends in Korea   <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        Soo-Yong Shin, Dong-Woo Seo, <a class="twitterblue" href="http://jisun.me">Jisun An</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, Sung-Han Kim, Jin Gwack, and Min-Woo Jo<br/>
-                        <span style="font-style:italic">Scientific Reports 6, Article number: 32920 (2016)</span><br/>
-                        <span class="label label-sm">social media analytics</span> 
-                        </blockquote>
-                    </li>                    
-                    <li>
-                        <h4><a href="https://arxiv.org/abs/1603.04531">Revealing the Hidden Patterns of News Photos: Analysis of Millions of News Photos Using GDELT and Deep Learning-based Vision APIs   <i class="fa fa-file-pdf-o pdf"></i></a> <a href="https://www.slideshare.net/haewoon/revealing-the-hidden-patterns-of-news-photos-analysis-of-millions-of-news-photos-through-gdelt-and-deep-learningbased-vision-apis"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote>
-                        <span style="text-decoration: underline;">Haewoon Kwak</span> and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">NECO'16: The First International Workshop on NEws and publiC Opinion, colocated with ICWSM'16, 2016</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Picked as <a href="https://www.technologyreview.com/s/601114/the-best-of-the-physics-arxiv-week-ending-march-26-2016/" class="twitterblue">The Best of the Physics arXiv (week ending March 26, 2016)</a>  in MIT Technology Review<br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-deep">deep learning</span>
-                        </blockquote>
-                    </li>                 
-                    <li>
-                        <h4><a href="http://arxiv.org/abs/1603.01979">Two Tales of the World: Comparison of Widely Used World News Datasets: GDELT and EventRegistry  <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <span style="text-decoration: underline;">Haewoon Kwak</span> and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">ICWSM'16: The 10th International Conference on Web and Social Media, short paper, 2016</span><br/>
-                        <span class="label label-cj">computational journalism</span> 
-                        </blockquote>
-                    </li>                  
-                    <li>
-                        <h4><a href="http://arxiv.org/abs/1603.00646">Are You Charlie or Ahmed? Cultural Pluralism in Charlie Hebdo Response on Twitter <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="http://jisun.me">Jisun An</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a class="twitterblue" href="https://sites.google.com/site/yelenamejova/">Yelena Mejova</a>, <a class="twitterblue" href="http://explore.georgetown.edu/people/sa1197/">Sonia Alonso Saenz De Oger</a>, Braulio Gomez Fortes<br/>
-                        <span style="font-style:italic">ICWSM'16: The 10th International Conference on Web and Social Media, 2016</span><br/>
-                        <span class="label label-css">computational social science</span> <span class="label label-sm">social media analytics</span> 
-                        </blockquote>
-                    </li>                 
-                    <li>
-                        <h4><a href="http://cj2015.brown.columbia.edu/papers/consumers-and-suppliers.pdf">Consumers and Suppliers: Attention asymmetries. A Case Study of Aljazeera’s News Coverage and Comments <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote>
-                        <a class="twitterblue" href="https://sites.google.com/site/sofianeabbar2/">Sofiane Abbar</a>, <a class="twitterblue" href="http://jisun.me">Jisun An</a>,  <span style="text-decoratioN: underline;">Haewoon Kwak</span>, Yacine Messaoui, and <a class="twitterblue" href="http://www.jbh.cat/">Javier Borge-Holthoefer</a><br/>
-                        <span style="font-style:italic">C+J'15: Computation+Journalism Symposium, 2015</span><br/>
-                        <span class="label label-cj">computational journalism</span> 
-                        </blockquote>
-                    </li>                   
-                    <li>
-                        <h4><a href="http://arxiv.org/abs/1503.07921">Breaking the News: First Impressions Matter on Online News <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote><a href="http://homepages.dcc.ufmg.br/~julio.reis/" class="twitterblue">Julio Reis</a>, <a href="http://homepages.dcc.ufmg.br/~fabricio/" class="twitterblue">Fabrıcio Benevenuto</a>, <a href="http://homepages.dcc.ufmg.br/~olmo/" class="twitterblue">Pedro Olmo</a>, <a href="http://homepages.dcc.ufmg.br/~rprates/" class="twitterblue">Raquel Prates</a>, <span style="text-decoratioN: underline;">Haewoon Kwak</span>, and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">ICWSM'15: The International Conference on Web and Social Media, 2015</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="http://www.technologyreview.com/view/536676/other-interesting-arxiv-papers-week-ending-april-11-2015/" class="twitterblue">MIT Technology Review</a>, and <a href="http://oglobo.globo.com/sociedade/tecnologia/pesquisadores-da-ufmg-publicam-estudo-sobre-sentimentos-gerados-por-manchetes-on-line-15858353" class="twitterblue">O Globo</a><br/>
-                        <span class="label label-cj">computational journalism</span> <span class="label label-sm">social media analytics</span> 
-                        </blockquote>
-                    </li>                 
-                    <li>
-                        <h4>
-                        <img src="img/oa.gif" width="25" height="25" border="0" alt="ACM DL Author-ize service" style="vertical-align:middle"/><a href="http://dl.acm.org/authorize?N05627" title="Exploring Cyberbullying and Other Toxic Behavior in Team Competition Online Games">Exploring Cyberbullying and Other Toxic Behavior in Team Competition Online Games <i class="fa fa-file-pdf-o pdf"></i> </a><a href="http://www.slideshare.net/haewoon/exploring-cyberbullying-and-other-toxic-behavior-in-team-competition-online-games" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote><span style="text-decoratioN: underline;">Haewoon Kwak</span>, <a href="http://www.tid.es/research/researchers/j-blackburn" class="twitterblue">Jeremy Blackburn</a>, and <a href="http://homes.cs.washington.edu/~syhan/" class="twitterblue">Seungyeop Han</a><br/>
-                        <span style="font-style:italic">CHI'15: The SIGCHI Conference on Human Factors in Computing Systems, 2015</span><br/>
-                        <span class="label label-game">game analytics</span>
-                        </blockquote>
-                    </li>                
-                    <li>
-                        <h4><a href="https://www.dropbox.com/s/x6ufsc89e70qard/kwak2014from.pdf?dl=0">From Cells to Streets: Estimating Mobile Paths with Cellular-Side Data <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote><a href="http://www.tid.es/research/researchers/ilias-leontiadis" class="twitterblue">Ilias Leontiadis</a>, <a href="http://www.cs.bham.ac.uk/~axl162/" class="twitterblue">Antonio Lima</a>, <span style="text-decoratioN: underline;">Haewoon Kwak</span>, <a href="http://www.tid.es/research/researchers/rade-stanojevic" class="twitterblue">Rade Stanojevic</a>, <a href="https://djw.cs.washington.edu" class="twitterblue">David Wetherall</a>, and <a href="http://www.tid.es/research/researchers/dina-papagiannaki" class="twitterblue">Konstantina Papagiannaki</a><br/>
-                        <span style="font-style:italic">CoNEXT'14: The 10th International Conference on emerging Networking EXperiments and Technologies, 2014</span><br/>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <h4><a href="http://arxiv.org/abs/1410.3710">Understanding News Geography and Major Determinants of Global News Coverage of Disasters <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/sunny0221/14-1017-cjsymposium2014v3"  class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote><span style="text-decoratioN: underline;">Haewoon Kwak</span> and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">Computation + Journalism symposium (Oral presentation), 2014</span><br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="http://www.technologyreview.com/view/532036/data-mining-reveals-how-news-coverage-varies-around-the-world/" class="twitterblue">MIT Technology Review</a>, and <a href="http://cacm.acm.org/news/179842-data-mining-reveals-how-news-coverage-varies-around-the-world/fulltext" class="twitterblue">ACM TechNews</a><br/>
-                        <span class="label label-cj">computational journalism</span> 
-                        </blockquote>
-                    </li>                                    
-                    <li>
-                        <h4><a href="https://www.dropbox.com/s/fpt7gr3msens7dl/kwak2014first.pdf?dl=0">A First Look at Global News Coverage of Disasters By Using the GDELT Dataset <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-                        <blockquote><span style="text-decoratioN: underline;">Haewoon Kwak</span> and <a class="twitterblue" href="http://jisun.me">Jisun An</a><br/>
-                        <span style="font-style:italic">SocInfo'14: The 6th International Conference on Social Informatics (short paper), 2014</span><br/>
-                        <span class="label label-cj">computational journalism</span> 
-                        </blockquote>
-                    </li>                                                        
-                    <li>
-                        <h4><a href="http://arxiv.org/abs/1410.5185">Linguistic Analysis of Toxic Behavior in an Online Video Game <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/linguistic-analysis-of-toxic-behavior-in-an-online-video-game" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-                        <blockquote><span style="text-decoratioN: underline;">Haewoon Kwak</span> and <a href="http://www.tid.es/research/researchers/j-blackburn" class="twitterblue">Jeremy Blackburn</a><br/>
-                        <span style="font-style:italic">Workshop on Exploration on Games and Gamers collocated with SocInfo'14, 2014</span><br/>
-                        <span class="label label-game">game analytics</span>
-                        </blockquote>
-                    </li>
-					<li>
-						<h4><a href="https://www.dropbox.com/s/dc37i91axs1l972/laszlo2014searching.pdf?dl=0">Searching for a Unique Style in Soccer <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://qcri.org.qa/page?a=117&name=László_Gyarmati&pid=177&lang=en-CA" class="twitterblue">Laszlo Gyarmati</a>, <span style="text-decoratioN: underline;">Haewoon Kwak</span>, and <a href="http://people.tid.es/Pablo.Rodriguez/SitePages/Home.aspx" class="twitterblue">Pablo Rodriguez</a><br/>
-						<span style="font-style:italic">Workshop on Large-scale Sports Analytics colocated with KDD'14, 2014</span><br/>
-						<i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="http://www.bbc.com/future/story/20141024-what-makes-barcelona-so-special" class="twitterblue">BBC</a>, <a href="http://technologyreview.com/view/530791/how-network-theory-is-revealing-previously-unknown-patterns-in-sport/" class="twitterblue">MIT Technology Review</a>, <a href="http://www.thetimes.co.uk/tto/sport/football/finktank/article4226699.ece" class="twitterblue">The Times</a>, <a href="http://www.economist.com/blogs/gametheory/2014/09/analysing-football-styles" class="twitterblue">The Economist</a>, <a href="http://www.slate.fr/story/92245/graphiques-fc-barcelone-style-jeu-unique" class="twitterblue">Slate</a>, <a href="https://psmag.com/in-soccer-as-in-art-motifs-matter-889f6ce6b1ba#.ykqwk6ny8">Pacific Standard</a>, and many others.<br/>
-                        <span class="label label-net">network science</span> 
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://dl.acm.org/authorize?N87787" title="Didn't you see my message?: predicting attentiveness to mobile instant messages"><img src="img/oa.gif" width="25" height="25" border="0" alt="ACM DL Author-ize service" style="vertical-align:top"/>Didn’t You See My Message? Predicting Attentiveness to Mobile Instant Messages <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://pielot.org" class="twitterblue">Martin Pielot</a>, <a href="http://www.ic.unicamp.br/~oliveira/" class="twitterblue">Rodrigo de Oliveira</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a href="http://www.nuriaoliver.com" class="twitterblue">Nuria Oliver</a><br/> <span style='font-style:italic;'>CHI'14: The SIGCHI Conference on Human Factors in Computing Systems, Pages 3319-3328</span>, 2014<br/>
-						<i class="glyphicon glyphicon-pencil"></i>A high-level summary written by Martin Pielot is <a href="http://pielot.org/2014/05/01/lastseen/" class="twitterblue">available</a><br/>
-                        <span class="label label-hci">HCI</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://dl.acm.org/citation.cfm?id=2567987">STFU NOOB! Predicting Crowdsourced Decisions on Toxic Behavior in Online Games <i class="fa fa-file-pdf-o pdf"></i>
-						</a></h4>
-						<blockquote><a href="http://www.tid.es/research/researchers/j-blackburn" class="twitterblue">Jeremy Blackburn</a> and <span style="text-decoration: underline;">Haewoon Kwak</span><br/>
-						<span style='font-style:italic;'>WWW'14: The 23rd international conference on World wide web, Pages 877-888</span>, 2014<br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i>Featured in <a href="http://www.nature.com/news/can-a-video-game-company-tame-toxic-behaviour-1.19647" class="twitterblue"><span style="color: #ff0000;"><strong>Nature News</strong></span></a>, <a href="http://www.scientificamerican.com/article/can-a-video-game-company-tame-toxic-behavior/" class="twitterblue">Scientific American</a>, and <a href="news.chosun.com/site/data/html_dir/2016/04/06/2016040603525.html" class="twitterblue">Chosun.com (in Korean)</a><br/>
-						<i class="glyphicon glyphicon-thumbs-up"></i>Picked as <a href="http://www.technologyreview.com/view/527091/other-interesting-arxiv-papers-week-ending-may-3-2014/" class="twitterblue">'Other Interesting arXiv Papers (week ending May 3, 2014)'</a>  in MIT Technology Review<br/>
-                        <span class="label label-game">game analytics</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="https://www.dropbox.com/s/x007m6voctyntee/kwak2014has.pdf?dl=0">Has Much Potential but Biased: Exploring the Scholarly Landscape in Twitter <i class="fa fa-file-pdf-o pdf"></i></a> <a href="https://www.dropbox.com/s/kaz526nixozusfn/2014-4-www-poster.pdf?dl=0" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span> and Jonggun Lee<br/>
-						<span style='font-style:italic;'>WWW'14-WebSci: Proceedings of the 23rd international conference on World wide web companion (WebScience track), Pages 563-564</span>, 2014<br/>
-                        <span class="label label-sm">social media analytics</span> 
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://www2013.org/companion/p549.pdf">Tower of Babel: A Crowdsourcing Game Building Sentiment Lexicons for Resource-scarce Languages <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>Yoonsung Hong, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="https://sites.google.com/site/ymbaek/" class="twitterblue">Youngmin Baek</a>, <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a><br/>
-						<span style='font-style:italic;'>Workshop on Multidisciplinary Approaches to Big Social Data Analysis colocated with WWW'13</span>, 2013<br/>
-                        <span class="label label-hci">HCI</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://dl.acm.org/authorize?6892114" title="Structures of broken ties: exploring unfollow behavior on twitter"><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" />Structures of Broken Ties: Exploring Unfollow Behavior on Twitter <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>Bo Xu, Yun Huang, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://nosh.northwestern.edu/" class="twitterblue">Noshir S. Contractor</a><br/>
-						<span style='font-style:italic;'>CSCW '13: The 16th ACM Conference on Computer Supported Cooperative Work and Social Computing (CSCW)</span>, 2013<br/>
-                        <span class="label label-net">network science</span> <span class="label label-css">computational social science</span> <span class="label label-sm">social media analytics</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2012-icwsm-socmedvis.pdf">Visualizing a Personal Timeline by Adding Multiple Social Contexts <i class="fa fa-file-pdf-o pdf"></i></h4></a>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Yoonsung Hong, Jinyoung You, and <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a><br/>
-						<span style='font-style:italic;'>Workshop on Social Media Visualization (SocMedVis) colocated with ICWSM'12</span>, 2012<br/>
-                        <span class="label label-hci">HCI</span>
-						</blockquote>
-					</li>
-				    <li>
-				    	<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2012-icwsm-poster.pdf">More of a Receiver than a Giver: Why Do People Unfollow in Twitter? <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://an.kaist.ac.kr/~haewoon/papers/2012-netsci-poster.pdf" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-				    	<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a>, and Wonjae Lee<br/>
-						<span style='font-style:italic;'>ICWSM '12: The 6th International AAAI Conference on Weblogs and Social Media (ICWSM)</span>, 4page poster, 2012<br/>
-                        <span class="label label-net">network science</span> <span class="label label-css">computational social science</span> <span class="label label-sm">social media analytics</span>
-						</blockquote>
-				    </li>
-					<li>
-						<h4><a href="https://www.dropbox.com/s/u5qi9dmbhuqpq95/kwak2011consistent.pdf?dl=0">Consistent Community Identification in Complex Networks <i class="fa fa-file-pdf-o pdf"></i></a></h4> 
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a>, <a href="https://sites.google.com/site/younghoeom/home" class="twitterblue">Young-Ho Eom</a>, Yoonchan Choi, and <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a><br/>
-						<span style='font-style:italic;'>Journal of Korean Physical Society</span>, Vol. 59, No. 5, November 2011.<br/>
-						<i class="glyphicon glyphicon-share"></i><a href="http://an.kaist.ac.kr/traces/IMC2009-kwak.html">12 complex network datasets and source codes are available</a><br/>
-                        <span class="label label-net">network science</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a title="Fragile Online Relationship: a First Look at Unfollow Dynamics in Twitter" href="http://dl.acm.org/authorize?419779"><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" />Fragile Online Relationship: a First Look at Unfollow Dynamics in Twitter <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/fragile-online-relationship-a-first-look-at-unfollow-dynamics-in-twitter" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Hyunwoo Chun, and <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a><br/>
-							<span style='font-style:italic;'>CHI '11: The SIGCHI Conference on Human Factors in Computing Systems</span>, 2011<br/>
-							<i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="http://www.computerworld.com.sg/resource/networking/the-dynamics-of-twitters-unfollow" class="twitterblue">Computer world Singapore</a>, <a href="http://news.khan.co.kr/kh_news/khan_art_view.html?artid=201112132128435&code=960201" class="twitterblue">경향신문</a>, etc.<br/>
-                            <span class="label label-net">network science</span> <span class="label label-css">computational social science</span> <span class="label label-sm">social media analytics</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="What is Twitter, a social network or a news media?" href="http://dl.acm.org/authorize?237581">What is Twitter, a Social Network or a News Media? <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/what-is-twitter-a-social-network-or-a-news-media-3922095" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Changhyun Lee, Hosung Park, and <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a><br/>
-							<span style='font-style:italic;'>WWW '10: The 19th international conference on World wide web</span>, 2010<br/>
-							<i class="glyphicon glyphicon-share"></i>We have been <a href="http://an.kaist.ac.kr/traces/WWW2010.html" class="twitterblue">sharing a huge social graph (41M users)</a>  for research purpose.<br/>
-							<i class="glyphicon glyphicon-thumbs-up"></i><a href="http://scholar.google.com/citations?user=M6i3Be0AAAAJ&amp;hl=en"><span style="color: #ff0000;"><strong>5,000+</strong> papers citing this work (counted by Google Scholar)</span></a><br/>
-							<i class="glyphicon glyphicon-thumbs-up"></i>Press coverage: <a href="http://mashable.com/2010/10/11/facebook-twitter-social/" class="twitterblue">Mashable Op-Ed</a>, <a href="http://www.readwriteweb.com/archives/study_twitter_isnt_very_social.php" class="twitterblue">Readwrite</a>, <a href="http://gigaom.com/2011/03/28/twitter-as-media-yes-celebrities-and-brands-still-matter/" class="twitterblue">Gigaom</a>, <a href="http://www.pcworld.com/article/195374/article.html" class="twitterblue">IDG News</a>, <a href="http://www.theguardian.com/technology/2010/may/09/john-naughton-twitter-microsoft-research" class="twitterblue">The Guardian</a>, <a href="http://www.technologyreview.com/blog/mimssbits/25128/" class="twitterblue">MIT Technology Review blog</a>, <a href="http://www.ibnlive.com/news/tech/is-twitter-saturating-theres-no-reciprocation-and-theres-homophily-1006930.html" class="twitterblue">IBN Live</a>, <a href="http://businessnews.chosun.com/site/data/html_dir/2010/05/13/2010051300519.html" class="twitterblue">조선일보</a>, <a href="http://news.hankooki.com/lpage/economy/201004/h20100428221439111720.htm" class="twitterblue">한국일보</a>, <a href="http://news.donga.com/Economy/Money/3/0102/20111210/42505605/1" class="twitterblue">동아일보</a>, <a href="http://news.kbs.co.kr/tvnews/ssam/2011/01/2232657.html" class="twitterblue">KBS</a>, <a href="http://news.khan.co.kr/kh_news/khan_art_view.html?artid=201112132128435&code=960201" class="twitterblue">경향신문</a>, etc.<br/>
-                            <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="Finding influentials based on the temporal order of information adoption in twitter" href="http://dl.acm.org/authorize?235691">Finding Influentials based on the Temporal Order of Information Adoption in Twitter <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>Changhyun Lee, <span style="text-decoration: underline;">Haewoon Kwak</span>, Hosung Park, and <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a><br/>
-						<span style='font-style:italic;'>WWW '10: The 19th international conference on World wide web</span>, 2010<br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i><a href="https://scholar.google.com/scholar?oi=bibs&hl=ko&cites=12907911141919226818&as_sdt=5">100+ papers</a> citing this work<br/>
-                        <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span>
-						</blockquote> 
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2010-comsnets-mesoscale.pdf">Understanding Topological Mesoscale Features in Community Mining <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a>, Jinyoung You, <span style="text-decoration: underline;">Haewoon Kwak</span>, Daniel Kim, and <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a><br/>
-						<span style='font-style:italic;'>COMSNETS '10: The Fifth International Conference on COMmunication Systems and NETworkS (invited paper)</span>, 2010<br/>
-                        <span class="label label-net">network science</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2009-ton-youtube.pdf">Analyzing the Video Popularity Characteristics of Large-Scale User Generated Content Systems <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://mia.kaist.ac.kr/members/mcha/" class="twitterblue">Meeyoung Cha</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://people.tid.es/Pablo.Rodriguez/SitePages/Home.aspx" class="twitterblue">Pablo Rodriguez</a>, <a href="http://yongyeol.com/" class="twitterblue">Yong-Yeol Ahn</a>, and <a href="http://an.kaist.ac.kr/~sbmoon" class="twitterblue">Sue Moon</a><br/>
-							<span style='font-style:italic;'>ACM/IEEE Transactions on Networking</span>, Vol 17, Issue 5, pp 1357-1370, 2009<br/>
-                        <i class="glyphicon glyphicon-thumbs-up"></i><a href="https://scholar.google.co.kr/citations?view_op=view_citation&hl=ko&user=M6i3Be0AAAAJ&citation_for_view=M6i3Be0AAAAJ:2osOgNQ5qMEC">170+ papers</a> citing this work<br/>
-                        <span class="label label-sm">social media analytics</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="Mining communities in networks: a solution for consistency and its evaluation" href="http://dl.acm.org/authorize?256322">Mining Communities in Networks: a Solution for Consistency and Its Evaluation <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/2009-11imc09kwak" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Yoonchan Choi, <a href="https://sites.google.com/site/younghoeom/home" class="twitterblue">Young-Ho Eom</a>, <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a>, and <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a><br/>
-						<span style='font-style:italic;'>IMC '09: The 9th ACM SIGCOMM conference on Internet measurement conference</span>, 2009<br/>
-						<i class="glyphicon glyphicon-share"></i><a href="http://an.kaist.ac.kr/traces/IMC2009-kwak.html">12 complex network datasets and source codes are available</a><br/>
-                        <span class="label label-net">network science</span>
-                        </blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="The wisdom of the few: a collaborative filtering approach based on expert opinions from the web" href="http://dl.acm.org/authorize?107602">The Wisdom of the Few: A Collaborative Filtering Approach based on Expert Opinions from the Web <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>Xavier Amatriaain, Neal Lathia, Josep M. Pujol, <span style="text-decoration: underline;">Haewoon Kwak</span>, and <a href="http://www.nuriaoliver.com/" class="twitterblue">Nuria Oliver</a><br/>
-							<span style='font-style:italic;'>SIGIR '09: The 32nd international ACM SIGIR conference on Research and development in information retrieval</span>, 2009<br/>
-                            <i class="glyphicon glyphicon-thumbs-up"></i><a href="https://scholar.google.com/scholar?oi=bibs&hl=ko&cites=12105950545188755091">100+ papers</a> citing this work<br/>
-                            <span class="label label-rec">recommendation system</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2009-icwsm-interestnetwork.pdf">Connecting Users with Similar Interests Across Multiple Web Services <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://zoom.it/11jr"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Hwa-Yong Shin, Jong-Il Yoon, and <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a><br/>
-						<span style='font-style:italic;'>ICWSM '09: The 3rd International AAAI Conference on Weblogs and Social Media</span>, 4page poster, 2009<br/>
-                        <span class="label label-rec">recommendation system</span>
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2009-pam-poster.pdf">CASFI Data Sharing Platform <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>Seoyeon Kang, Nicolas Aycirieix, <span style="text-decoration: underline;">Haewoon Kwak</span>, Sangman Kim, and <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a><br/>
-							<span style='font-style:italic;'>PAM '09: The 10th Passive and Active Measurement (PAM)</span>, Student Workshop, 2009
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="Comparison of online social relations in volume vs interaction: a case study of cyworld" href="http://dl.acm.org/authorize?037715">Comparison of Online Social Relations in Volume vs Interaction: A Case Study of Cyworld <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/comparison-of-online-social-relations-in-terms-of-volume-vs-interaction-a-case-study-of-cyworld" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote>Hyunwoo Chun, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="https://sites.google.com/site/younghoeom/home" class="twitterblue">Young-Ho Eom</a>, <a href="http://yongyeol.com/" class="twitterblue">Yong-Yeol Ahn</a>, <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a>, and <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a><br/>
-						<span style='font-style:italic;'>IMC '08: The 8th ACM SIGCOMM conference on Internet measurement</span>, 2008<br/>
-						<i class="glyphicon glyphicon-thumbs-up"></i><a href="http://scholar.google.com/scholar?cites=16920983580300166416&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">150+ papers</a> citing this work<br/>
-                        <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span> 
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="I tube, you tube, everybody tubes: analyzing the world's largest user generated content video system" href="http://dl.acm.org/authorize?916072">I Tube, You Tube, Everybody Tubes: Analyzing the World's Largest User Generated Content Video System <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://mia.kaist.ac.kr/members/mcha/" class="twitterblue">Meeyoung Cha</a>, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://people.tid.es/Pablo.Rodriguez/SitePages/Home.aspx" class="twitterblue">Pablo Rodriguez</a>, <a href="http://yongyeol.com/" class="twitterblue">Yong-Yeol Ahn</a>, <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a><br/>
-						<span style="font-style:italic;">IMC '07: The 7th ACM SIGCOMM conference on Internet measurement</span>, 2007<br/>
-						<i class="glyphicon glyphicon-share"></i><a href="http://an.kaist.ac.kr/traces/IMC2007.html">The metadata of a few categories of videos are available</a>.<br/>
-						<i class="glyphicon glyphicon-thumbs-up"></i><strong>Best paper award</strong>, <a href="http://scholar.google.com/scholar?cites=10792240042294166454&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">1,100+ papers</a> citing this work<br/>
-                        <span class="label label-sm">social media analytics</span> 
-						</blockquote>
-					</li>
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="Analysis of topological characteristics of huge online social networking services" href="http://dl.acm.org/authorize?968490">Analysis of topological characteristics of huge online social networking services <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><a href="http://yongyeol.com/" class="twitterblue">Yong-Yeol Ahn</a>, Seungyeop Han, <span style="text-decoration: underline;">Haewoon Kwak</span>, <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a>, <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a><br/>
-						<span style="font-style:italic;">WWW '07: The 16th international conference on World Wide Web</span>, 2007<br/>
-						<i class="glyphicon glyphicon-share"></i><a href="http://an.kaist.ac.kr/traces/WWW2007.html">A snowball-sampled social graph of 100,000 Myspace users is available</a>.<br/>
-						<i class="glyphicon glyphicon-thumbs-up"></i><a href="http://scholar.google.com/scholar?cites=9872765684557150192&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">800+ papers</a> citing this work<br/>
-                        <span class="label label-net">network science</span> <span class="label label-sm">social media analytics</span> 
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/an.kaist.ac.kr/~sbmoon/paper/2006-kiss-sampling-cyworld.doc">Impact of snowball sampling ratios on network characteristics estimation: A case study of Cyworld <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><span style="text-decoration: underline;">Haewoon Kwak</span>, Seungyeop Han, <a href="http://yongyeol.com/" class="twitterblue">Yong-Yeol Ahn</a>, <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a>, and <a href="http://stat.kaist.ac.kr/~hjeong/" class="twitterblue">Hawoong Jeong</a><br/>
-							<span style="font-style:italic;">KISS '06: Korea Information Science Society Fall Conference</span>, 2006<br/>
-							<i class="glyphicon glyphicon-file"></i><a href="http://www.cs.kaist.ac.kr/common/download.cs?tbl=report_tbl&amp;clm=rpt_upload,rpt_filename,rpt_dir&amp;wclm=rpt_sno&amp;uclm=rpt_download&amp;sno=252">Technical report [CS-TR-2006-262] is also available</a>.<br/>
-                            <span class="label label-net">network science</span> 
-						</blockquote>
-					</li>
-				</ul>
-
-				<!-- article -->
-				<h3>Articles</h3>
-				<ul class="descp lead2">
-					<li>
-						<h4><img style="vertical-align: top;" src="img/oa.gif" alt="ACM DL Author-ize service" width="25" height="25" border="0" /><a title="" href="http://dl.acm.org/authorize?432622">Novel aspects coming from the directionality of online relationships: a case study of Twitter <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote><span style="text-decoration: underlne;">Haewoon Kwak</span>, Changhyun Lee, Hosung Park, Hyunwoo Chun and <a href="http://an.kaist.ac.kr/~sbmoon/" class="twitterblue">Sue Moon</a> with Ching-man Au Yeung as coordinator<br/>
-						<span style="font-style:italic;">ACM SIGWEB Newsletter</span>, 2011
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://icr.snu.ac.kr/jcr/down.php?filename=4_%B0%FB%C7%D8%BF%EE%20%BF%DC.pdf">트위터는 소셜 네트워크인가? 네트워크 구조와 정보 전파의 관점</a> <i class="fa fa-file-pdf-o pdf"></i></h4>
-						<blockquote><span style="text-decoration: underline;">곽해운</span>, 이창현, 박호성, 문수복<br/>
-							<span style="font-style:italic;">언론정보연구, 48권 1호,</span> 2011.<br/>
-							<i class="glyphicon glyphicon-pencil"></i>Korean summary of "What is Twitter, a social network or a news media? (WWW'10)"
-						</blockquote>
-					</li>
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~sbmoon/paper/domestic-journal/2010-kiise-influential.pdf">소셜 네트워크에서의 인플루엔셜 랭킹 <i class="fa fa-file-pdf-o pdf"></i></a></h4>
-						<blockquote>박호성, <span style="text-decoration: underline;">곽해운</span>, 차미영, 문수복<br/>
-							<span style="font-style:italic;">한국정보과학회 정보과학회지, 28권 3호</span>, 2010
-						</blockquote>
-					</li>
-				</ul>
-
-				<h3>Ph.d. Thesis</h3>
-				<ul class="descp lead2">
-					<li>
-						<h4><a href="http://an.kaist.ac.kr/~haewoon/papers/2011-phd-thesis.pdf">Multi-level Analysis on Structures and Dynamics of Online Social Networks 온라인 소셜 네트워크의 구조 및 동역학의 다층적 분석 <i class="fa fa-file-pdf-o pdf"></i></a> <a href="http://www.slideshare.net/haewoon/2011-4phd-thesismultilevel-analysis-on-structures-and-dynamics-of-osn" class="twitterblue"><i class="fa fa-file-powerpoint-o ppt"></i></a></h4>
-						<blockquote>Haewoon Kwak, KAIST, April, 2011<br/>
-							<i class="glyphicon glyphicon-thumbs-up"></i>The outstanding PhD thesis award in Computer Science Department, KAIST<br/>
-						</blockquote>
-					</li>
-				</ul>
-
-				<h3>Book Chapters</h3>
-				<ul class="descp lead2">
-				<li>
-					<h4><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=8966800300">트위터란 무엇인가 - 다학제적 접근</a></h4>
-					<blockquote>서울대학교 언론정보연구소 기획, 이재현 엮음, 커뮤니케이션북스, 2012.
-					</blockquote>
-				</li>
-				</ul>
-
-				<h3>Patents</h3>
-				<ul class="descp lead2">
-					<li><h4>Systems and method for extracting users of similar interests between various types of web servers</h4>
-					<blockquote>
-					Suebok Moon, <span style="text-decoration: underline;">Haewoon Kwak</span>, Hwayong Shin, and Jongil Yoon<br/>
-					(US 8,423,542 B2, April 2013)
-					</blockquote></li>
-					<li><h4>다종 웹 서버 간 유사 사용자 추출 시스템 및 그 방법</h4>
-					<blockquote>
-					문수복, <span style="text-decoration: underline;">곽해운</span>, 신화용, 윤종일
-					 (공개 번호: 10, 2010, 0106831)
-					</blockquote>
-					</li>
-				</ul>
-        	</div>
-        </div>
-	</div>
-	
-	<!-- Credits -->
-	<div id="credits" class="content-section-a">
-		<div class="container">
-			<div class="row">
-			
-				<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-					<h2>Teaching</h2>
-					<p class="lead" style="margin-top:0">@IU and Singapore Management University</p>
-				</div>
-			</div>
-		
-			<div class="row wow bounceInUp" ></div>
-				<ul class="descp lead2">
-                    <li><h3>IU</h3>
-                    </li>
-                    <li>
-                        <h4>2022-23 Spring: I210 Information Infrastructure I</h4>
-                    </li>
-                    <li>
-                        <h3>SMU</h3>
-                    </li>
-					<li>
-						<h4>2022-23 Term 1: IS457 Fairness in Sociotechnical Systems</h4>
-                        <h4>2022-23 Term 1: IS111 Intro to Programming</h4>
-						<blockquote>
-							
-						</blockquote>
-					</li>	
-                    <li>
-						<h4>2021-22 Term 1: IS457 Fairness in Sociotechnical Systems</h4>
-                        <h4>2021-22 Term 1: IS111 Intro to Programming</h4>
-						<blockquote>
-							
-						</blockquote>
-					</li>					
-					<li>
-						<h4>2020-21 Term 2: IS112 Data Management</h4>
-						<blockquote>
-							
-						</blockquote>
-					</li>
-				</ul>
-			</div>
-	</div>
-	
-	<!-- Contact -->
-	<div id="contact" class="content-section-a">
-		<div class="container">
-			<div class="row">
-			
-			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-				<h2>Contact</h2>
-				<p class="lead" style="margin-top:0">E-mail is the best option to contact me.</p>
-			</div>
-			
-			<hr class="featurette-divider hidden-lg">
-				<div class="col-md-6 col-md-push-1 address">
-					<address>
-						<h3>E-mail</h3>
-						<p class="lead">haewoon_AT_acm.org</p>
-						<h3>Office</h3>
-						<p class="lead">
-                            Luddy School of
-                            Informatics, Computing, and Engineering<br/>
-                            Bloomington, IN 47408, USA
-                            <br/>
-					</address>
-					</li>
-				</div>
-			</div>
-		</div>
-	</div>
-		
-	<div class="content-section-c" style="text-align:center;">
-		<div class="morph-button">
-			<button type="button "></button>
-		</div>
-	</div>	
-	
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-
-			
-			<!-- LICENSE -->
-			<a rel="cc:attributionURL" href="http://www.andreagalanti.it/flatfy"
-		   property="dc:title">Flatfy Theme </a> by
-		   <a rel="dc:creator" href="http://www.andreagalanti.it"
-		   property="cc:attributionName">Andrea Galanti</a>
-		   is licensed to the public under 
-		   <BR>the <a rel="license"
-		   href="http://creativecommons.org/licenses/by-nc/3.0/it/deed.it">Creative
-		   Commons Attribution 3.0 License - NOT COMMERCIAL</a>.
-		   <br/>
-		   <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
-	   
-          </div> <!-- /col-xs-7 -->
-        </div>
-      </div>
+      &copy; Haewoon Kwak
     </footer>
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/script.js"></script>
-	<!-- StikyMenu -->
-	<script src="js/stickUp.min.js"></script>
-	<script type="text/javascript">
-	  jQuery(function($) {
-		$(document).ready( function() {
-		  $('.navbar-default').stickUp();
-		  
-		});
-	  });
-	
-	</script>
-	<!-- Smoothscroll -->
-	<script type="text/javascript" src="js/jquery.corner.js"></script> 
-	<script src="js/wow.min.js"></script>
-	<script>
-	 new WOW().init();
-	</script>
-	<script src="js/classie.js"></script>
-	<script src="js/uiMorphingButton_inflow.js"></script>
-	<!-- Magnific Popup core JS file -->
-	<script src="js/jquery.magnific-popup.js"></script> 
+  </main>
 </body>
-
 </html>
