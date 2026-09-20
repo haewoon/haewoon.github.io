@@ -1,4 +1,5 @@
-// One entry per picture, newest first. `file` must match a file in src/photos/.
+// One entry per picture; the page sorts by date, newest first.
+// `file` must match a file in src/photos/.
 // `note` is the line that shows under the picture — leave it empty to show none.
 export interface Photo {
   file: string;

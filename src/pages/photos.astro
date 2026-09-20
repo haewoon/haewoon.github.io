@@ -20,15 +20,17 @@ function monthYear(date: string) {
   return `${MONTHS[Number(month) - 1]} ${year}`;
 }
 
-const entries = photos.map((photo) => {
-  const image = files[`../photos/${photo.file}`]?.default;
-  if (!image) {
-    throw new Error(
-      `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
-    );
-  }
-  return { ...photo, image };
-});
+const entries = [...photos]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .map((photo) => {
+    const image = files[`../photos/${photo.file}`]?.default;
+    if (!image) {
+      throw new Error(
+        `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
+      );
+    }
+    return { ...photo, image };
+  });
 ---
 
 <Base
