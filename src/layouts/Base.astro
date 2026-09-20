@@ -51,7 +51,8 @@ const tabs = [
       padding: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI",
+        "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif;
       font-size: 17px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
@@ -257,6 +258,11 @@ const tabs = [
       margin-left: 6px;
     }
     .caption .note { display: block; margin-top: 1px; }
+    .caption .note-en {
+      display: block;
+      margin-top: 1px;
+      color: var(--ink-faint);
+    }
 
     .lightbox {
       border: 0;
@@ -307,7 +313,12 @@ const tabs = [
     .lightbox figcaption .note {
       display: block;
       margin-top: 3px;
-      opacity: 0.75;
+      opacity: 0.85;
+    }
+    .lightbox figcaption .note-en {
+      display: block;
+      margin-top: 1px;
+      opacity: 0.55;
     }
     .lightbox .close,
     .lightbox .step {

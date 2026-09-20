@@ -49,7 +49,7 @@ const entries = await Promise.all(
   </p>
 
   <ul class="gallery">
-    {entries.map(({ image, full, place, date, note }) => (
+    {entries.map(({ image, full, place, date, note, noteEn }) => (
       <li>
         <button
           type="button"
@@ -58,13 +58,15 @@ const entries = await Promise.all(
           data-place={place}
           data-when={monthYear(date)}
           data-note={note}
+          data-note-en={noteEn}
         >
-          <Image src={image} alt={note || place} widths={[300, 600]} sizes="(max-width: 699px) 45vw, 280px" />
+          <Image src={image} alt={noteEn || place} widths={[300, 600]} sizes="(max-width: 699px) 45vw, 280px" />
         </button>
         <p class="caption">
           <span class="where">{place}</span>
           <span class="when">{monthYear(date)}</span>
-          {note && <span class="note">{note}</span>}
+          {note && <span class="note" lang="ko">{note}</span>}
+          {noteEn && <span class="note-en">{noteEn}</span>}
         </p>
       </li>
     ))}
@@ -79,7 +81,8 @@ const entries = await Promise.all(
       <figcaption>
         <span class="where"></span>
         <span class="when"></span>
-        <span class="note"></span>
+        <span class="note" lang="ko"></span>
+        <span class="note-en"></span>
       </figcaption>
     </figure>
   </dialog>
@@ -92,6 +95,7 @@ const entries = await Promise.all(
   const where = dialog.querySelector<HTMLElement>(".where")!;
   const when = dialog.querySelector<HTMLElement>(".when")!;
   const note = dialog.querySelector<HTMLElement>(".note")!;
+  const noteEn = dialog.querySelector<HTMLElement>(".note-en")!;
 
   let current = 0;
 
@@ -104,6 +108,7 @@ const entries = await Promise.all(
     where.textContent = shot.dataset.place ?? "";
     when.textContent = shot.dataset.when ?? "";
     note.textContent = shot.dataset.note ?? "";
+    noteEn.textContent = shot.dataset.noteEn ?? "";
   }
 
   shots.forEach((shot, index) => {
