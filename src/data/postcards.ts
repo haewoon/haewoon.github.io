@@ -35,4 +35,25 @@ export const postcards: Postcard[] = [
     note: "쿠사마 야요이의 노란 호박을 향해 걸어가는 세 가족",
     noteEn: "A family of three walking toward Yayoi Kusama's yellow pumpkin.",
   },
+  {
+    file: "202509-IU-Clocktower.png",
+    place: "Indiana University, USA",
+    date: "2025-09",
+    note: "학교 산책하다가 시계탑 앞에서",
+    noteEn: "On a campus walk, stopping at the clock tower.",
+  },  
+  {
+    file: "202506-Obihiro-Hokkaido.png",
+    place: "Obihiro, Hokkaido, Japan",
+    date: "2025-06",
+    note: "호텔에서 보이던 수풀 미로",
+    noteEn: "The hedge maze we could see from the hotel.",
+  },    
+  {
+    file: "202506-Obihiro-Butadon-Hokkaido.png",
+    place: "Obihiro, Hokkaido, Japan",
+    date: "2025-06",
+    note: "맛있었던 부타동",
+    noteEn: "Butadon, and it was delicious.",
+  },    
 ];
