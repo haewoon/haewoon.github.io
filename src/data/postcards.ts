@@ -37,7 +37,7 @@ export const postcards: Postcard[] = [
   },
   {
     file: "202509-IU-Clocktower.png",
-    place: "Indiana University, USA",
+    place: "Bloomington, Indiana, USA",
     date: "2025-09",
     note: "학교 산책하다가 시계탑 앞에서",
     noteEn: "On a campus walk, stopping at the clock tower.",
