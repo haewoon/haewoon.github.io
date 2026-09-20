@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Refresh the citation/h-index numbers on index.html from the SoDA Lab cache.
+"""Refresh the citation/h-index numbers on the home page from the SoDA Lab cache.
 
 Reads the lab repo's scholar_cache.json (which the lab's weekly cron keeps up
 to date via the `scholarly` library) and rewrites the <strong data-stat="...">
-spans on this site so the personal page stays in sync without its own
+spans in src/pages/index.astro so the personal page stays in sync without its own
 Google-Scholar fetch.
 
 Usage:
@@ -20,7 +20,7 @@ from datetime import date
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-INDEX = HERE / "index.html"
+INDEX = HERE / "src" / "pages" / "index.astro"
 LAB_CACHE = (HERE / ".." / "soda-labo-astro" / "web" / "src" / "data" /
              "scholar_cache.json").resolve()
 SCHOLAR_KEY = "haewoon_kwak"

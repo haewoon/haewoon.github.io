@@ -1,11 +1,22 @@
+---
+// Site shell: <head>, fonts and the shared stylesheet.
+// Page content is slotted into <main>.
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haewoon Kwak</title>
-  <meta name="description" content="Haewoon Kwak — Associate Professor at the Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington. Co-director of SoDA Lab." />
-  <link rel="icon" href="favicon.ico" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,7 +28,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;1,400&display=swap" />
   </noscript>
-  <style>
+  <style is:global>
     :root {
       --paper: #fdfcf9;
       --ink: #1a1a1a;
@@ -172,74 +183,7 @@
 </head>
 <body>
   <main>
-    <img class="photo" src="img/illustration.png" alt="Illustrated portrait of Haewoon Kwak" width="96" height="96" />
-
-    <h1>Haewoon Kwak</h1>
-
-    <p class="role">
-      Associate Professor, Luddy School of Informatics, Computing, and Engineering,
-      Indiana University Bloomington
-    </p>
-
-    <p class="bio">
-      I co-direct
-      <a href="https://soda-labo.github.io/">SoDA Lab</a>
-      with <a href="https://jisun.me">Jisun An</a>, where we study
-      <em>how people behave online and how AI is reshaping those spaces</em>.
-    </p>
-
-    <p class="bio">
-      I study social and cultural phenomena through large-scale data and
-      computational methods. My research often begins with a simple observation
-      about how people behave, interact, or organize, and asks whether it holds
-      at scale. My recent work extends this approach to AI, examining both how AI
-      reshapes human behavior and how social dynamics emerge among AI agents.
-    </p>
-
-    <p class="section-label">Selected work</p>
-
-    <ul class="work">
-      <li>
-        <a href="https://doi.org/10.1145/1772690.1772751">What is Twitter, a Social Network or a News Media?</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> WWW 2010</span>
-        <span class="note">How a new online platform departed from the social networks we knew.</span>
-      </li>
-      <li>
-        <a href="https://arxiv.org/abs/2607.28332">When AI Becomes Routine</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> AIES 2026</span>
-        <span class="note">How AI becomes embedded in&mdash;and eventually taken for granted in&mdash;human practice.</span>
-      </li>
-      <li>
-        <a href="https://arxiv.org/abs/2606.19111">Leadership as Coordination Control</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> arXiv 2026</span>
-        <span class="note">How familiar social dynamics reappear, and change, in teams of AI agents.</span>
-      </li>
-    </ul>
-
-    <p class="bio">
-      For papers, news, and openings, visit the lab site. This page is just a
-      quick way to find me.
-    </p>
-
-    <p class="scholar-line">
-      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
-        <strong data-stat="citations">23,154</strong> citations
-        <span aria-hidden="true" class="sep">·</span>
-        <strong data-stat="h_index">49</strong> h-index
-      </a>
-      <span class="updated">(<span data-stat="updated">September 2026</span>)</span>
-    </p>
-
-    <nav class="links" aria-label="Primary">
-      <a href="https://soda-labo.github.io/">SoDA Lab</a>
-      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">Google Scholar</a>
-      <a href="PDFs/haewoon_CV.pdf">CV</a>
-      <a href="mailto:hwkwak@iu.edu">Email</a>
-    </nav>
-
-    <footer>
-      &copy; Haewoon Kwak
-    </footer>
+    <slot />
   </main>
 </body>
 </html>
