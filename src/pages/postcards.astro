@@ -1,12 +1,12 @@
 ---
 import { Image, getImage } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import { photos } from "../data/photos.ts";
+import { postcards } from "../data/postcards.ts";
 
 // Astro optimizes images imported from src/, so the gallery picks them up here
 // rather than reading them from public/ at runtime.
 const files = import.meta.glob<{ default: ImageMetadata }>(
-  "../photos/*.{png,jpg,jpeg,webp}",
+  "../postcards/*.{png,jpg,jpeg,webp}",
   { eager: true },
 );
 
@@ -21,28 +21,28 @@ function monthYear(date: string) {
 }
 
 const entries = await Promise.all(
-  [...photos]
+  [...postcards]
     .sort((a, b) => b.date.localeCompare(a.date))
-    .map(async (photo) => {
-      const image = files[`../photos/${photo.file}`]?.default;
+    .map(async (card) => {
+      const image = files[`../postcards/${card.file}`]?.default;
       if (!image) {
         throw new Error(
-          `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
+          `postcards.ts lists ${card.file}, but src/postcards/${card.file} is missing.`,
         );
       }
       // The overlay swaps this in on click, so it is generated but not rendered.
       const full = await getImage({ src: image, width: 1200, format: "webp" });
-      return { ...photo, image, full: full.src };
+      return { ...card, image, full: full.src };
     }),
 );
 ---
 
 <Base
-  title="Photos — Haewoon Kwak"
+  title="Postcards — Haewoon Kwak"
   description="Places Haewoon Kwak has been, drawn as illustrations."
   wide
 >
-  <h1 class="page-title">Photos</h1>
+  <h1 class="page-title">Postcards</h1>
 
   <p class="bio">
     Places I have been, redrawn as illustrations.
@@ -72,10 +72,10 @@ const entries = await Promise.all(
     ))}
   </ul>
 
-  <dialog class="lightbox" aria-label="Photo">
+  <dialog class="lightbox" aria-label="Postcard">
     <button type="button" class="close" aria-label="Close">&times;</button>
-    <button type="button" class="step prev" aria-label="Previous photo">&#8249;</button>
-    <button type="button" class="step next" aria-label="Next photo">&#8250;</button>
+    <button type="button" class="step prev" aria-label="Previous postcard">&#8249;</button>
+    <button type="button" class="step next" aria-label="Next postcard">&#8250;</button>
     <figure>
       <img alt="" />
       <figcaption>
