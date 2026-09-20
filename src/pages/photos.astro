@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import { photos } from "../data/photos.ts";
+
+// Astro optimizes images imported from src/, so the gallery picks them up here
+// rather than reading them from public/ at runtime.
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  "../photos/*.{png,jpg,jpeg,webp}",
+  { eager: true },
+);
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function monthYear(date: string) {
+  const [year, month] = date.split("-");
+  return `${MONTHS[Number(month) - 1]} ${year}`;
+}
+
+const entries = photos.map((photo) => {
+  const image = files[`../photos/${photo.file}`]?.default;
+  if (!image) {
+    throw new Error(
+      `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
+    );
+  }
+  return { ...photo, image };
+});
+---
+
+<Base
+  title="Photos — Haewoon Kwak"
+  description="Places Haewoon Kwak has been, drawn as illustrations."
+>
+  <h1 class="page-title">Photos</h1>
+
+  <p class="bio">
+    Places I have been, redrawn as illustrations.
+  </p>
+
+  <ul class="gallery">
+    {entries.map(({ image, place, date, note }) => (
+      <li>
+        <figure>
+          <Image src={image} alt={note || place} widths={[560, 1120]} sizes="(max-width: 608px) 100vw, 560px" />
+          <figcaption>
+            <span class="where">{place}</span>
+            <span class="when">{monthYear(date)}</span>
+            {note && <span class="note">{note}</span>}
+          </figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+</Base>
