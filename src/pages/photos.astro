@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import { photos } from "../data/photos.ts";
 
@@ -20,22 +20,27 @@ function monthYear(date: string) {
   return `${MONTHS[Number(month) - 1]} ${year}`;
 }
 
-const entries = [...photos]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .map((photo) => {
-    const image = files[`../photos/${photo.file}`]?.default;
-    if (!image) {
-      throw new Error(
-        `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
-      );
-    }
-    return { ...photo, image };
-  });
+const entries = await Promise.all(
+  [...photos]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .map(async (photo) => {
+      const image = files[`../photos/${photo.file}`]?.default;
+      if (!image) {
+        throw new Error(
+          `photos.ts lists ${photo.file}, but src/photos/${photo.file} is missing.`,
+        );
+      }
+      // The overlay swaps this in on click, so it is generated but not rendered.
+      const full = await getImage({ src: image, width: 1200, format: "webp" });
+      return { ...photo, image, full: full.src };
+    }),
+);
 ---
 
 <Base
   title="Photos — Haewoon Kwak"
   description="Places Haewoon Kwak has been, drawn as illustrations."
+  wide
 >
   <h1 class="page-title">Photos</h1>
 
@@ -44,17 +49,92 @@ const entries = [...photos]
   </p>
 
   <ul class="gallery">
-    {entries.map(({ image, place, date, note }) => (
+    {entries.map(({ image, full, place, date, note }) => (
       <li>
-        <figure>
-          <Image src={image} alt={note || place} widths={[560, 1120]} sizes="(max-width: 608px) 100vw, 560px" />
-          <figcaption>
-            <span class="where">{place}</span>
-            <span class="when">{monthYear(date)}</span>
-            {note && <span class="note">{note}</span>}
-          </figcaption>
-        </figure>
+        <button
+          type="button"
+          class="shot"
+          data-full={full}
+          data-place={place}
+          data-when={monthYear(date)}
+          data-note={note}
+        >
+          <Image src={image} alt={note || place} widths={[300, 600]} sizes="(max-width: 699px) 45vw, 280px" />
+        </button>
+        <p class="caption">
+          <span class="where">{place}</span>
+          <span class="when">{monthYear(date)}</span>
+          {note && <span class="note">{note}</span>}
+        </p>
       </li>
     ))}
   </ul>
+
+  <dialog class="lightbox" aria-label="Photo">
+    <button type="button" class="close" aria-label="Close">&times;</button>
+    <button type="button" class="step prev" aria-label="Previous photo">&#8249;</button>
+    <button type="button" class="step next" aria-label="Next photo">&#8250;</button>
+    <figure>
+      <img alt="" />
+      <figcaption>
+        <span class="where"></span>
+        <span class="when"></span>
+        <span class="note"></span>
+      </figcaption>
+    </figure>
+  </dialog>
 </Base>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("dialog.lightbox")!;
+  const shots = [...document.querySelectorAll<HTMLButtonElement>("button.shot")];
+  const img = dialog.querySelector("img")!;
+  const where = dialog.querySelector<HTMLElement>(".where")!;
+  const when = dialog.querySelector<HTMLElement>(".when")!;
+  const note = dialog.querySelector<HTMLElement>(".note")!;
+
+  let current = 0;
+
+  function show(index: number) {
+    current = (index + shots.length) % shots.length;
+    const shot = shots[current];
+    const alt = shot.querySelector("img")?.alt ?? "";
+    img.src = shot.dataset.full!;
+    img.alt = alt;
+    where.textContent = shot.dataset.place ?? "";
+    when.textContent = shot.dataset.when ?? "";
+    note.textContent = shot.dataset.note ?? "";
+  }
+
+  shots.forEach((shot, index) => {
+    shot.addEventListener("click", () => {
+      show(index);
+      dialog.showModal();
+    });
+    // Warm the full-size image so opening the overlay is not a blank beat.
+    shot.addEventListener("pointerenter", () => {
+      const warm = new Image();
+      warm.src = shot.dataset.full!;
+    }, { once: true });
+  });
+
+  dialog.querySelector(".close")!.addEventListener("click", () => dialog.close());
+  dialog.querySelector(".prev")!.addEventListener("click", () => show(current - 1));
+  dialog.querySelector(".next")!.addEventListener("click", () => show(current + 1));
+
+  // Clicking the backdrop (the dialog element itself, outside the figure) closes.
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") { event.preventDefault(); show(current + 1); }
+    if (event.key === "ArrowLeft") { event.preventDefault(); show(current - 1); }
+    // <dialog> closes itself on Escape; this keeps that true where a host
+    // window swallows the key before the default action runs.
+    if (event.key === "Escape") dialog.close();
+  });
+
+  // Return focus to the thumbnail that opened the overlay.
+  dialog.addEventListener("close", () => shots[current]?.focus());
+</script>

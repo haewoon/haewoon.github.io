@@ -4,9 +4,11 @@
 interface Props {
   title: string;
   description: string;
+  /** Widen the column - used by pages that show a grid rather than prose. */
+  wide?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, wide = false } = Astro.props;
 
 const here = Astro.url.pathname.replace(/\/$/, "") || "/";
 const tabs = [
@@ -200,32 +202,134 @@ const tabs = [
       letter-spacing: -0.02em;
       margin: 0 0 12px;
     }
+    main.wide { max-width: 880px; }
     .gallery {
       list-style: none;
       margin: 0 0 28px;
       padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 20px;
     }
-    .gallery li + li { margin-top: 44px; }
-    .gallery figure { margin: 0; }
-    .gallery img {
+    @media (min-width: 700px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 699px) {
+      /* Columns are too narrow to keep place and month on one line. */
+      .caption .when { display: block; margin-left: 0; }
+    }
+    .shot {
       display: block;
       width: 100%;
-      height: auto;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: zoom-in;
       border-radius: 3px;
+      overflow: hidden;
+      line-height: 0;
     }
-    .gallery figcaption {
-      margin-top: 10px;
-      font-size: 14px;
+    .shot img {
+      display: block;
+      width: 100%;
+      /* height:auto lets aspect-ratio win over the intrinsic height attribute. */
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      transition: opacity 0.15s ease;
+    }
+    .shot:hover img { opacity: 0.88; }
+    .shot:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .caption {
+      margin: 8px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
       color: var(--ink-soft);
     }
-    .gallery .where { font-weight: 500; color: var(--ink); }
-    .gallery .when {
+    .caption .where { font-weight: 500; color: var(--ink); }
+    .caption .when {
       font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--ink-faint);
+      margin-left: 6px;
+    }
+    .caption .note { display: block; margin-top: 1px; }
+
+    .lightbox {
+      border: 0;
+      padding: 0;
+      max-width: 100vw;
+      max-height: 100vh;
+      width: 100%;
+      height: 100%;
+      background: none;
+      overflow: hidden;
+    }
+    .lightbox::backdrop {
+      background: color-mix(in oklch, var(--ink) 88%, transparent);
+    }
+    .lightbox figure {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 32px 24px;
+      pointer-events: none;
+    }
+    .lightbox img {
+      max-width: min(100%, 720px);
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      border-radius: 3px;
+      pointer-events: auto;
+    }
+    .lightbox figcaption {
+      color: var(--paper);
+      font-size: 14px;
+      text-align: center;
+      max-width: 520px;
+      pointer-events: auto;
+    }
+    .lightbox figcaption .where { font-weight: 500; }
+    .lightbox figcaption .when {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-size: 11px;
+      opacity: 0.6;
       margin-left: 8px;
     }
-    .gallery .note { display: block; margin-top: 2px; }
+    .lightbox figcaption .note {
+      display: block;
+      margin-top: 3px;
+      opacity: 0.75;
+    }
+    .lightbox .close,
+    .lightbox .step {
+      position: fixed;
+      border: 0;
+      background: none;
+      color: var(--paper);
+      opacity: 0.55;
+      cursor: pointer;
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1;
+      padding: 12px;
+    }
+    .lightbox .close:hover,
+    .lightbox .step:hover { opacity: 1; }
+    .lightbox .close { top: 12px; right: 16px; font-size: 30px; }
+    .lightbox .step { top: 50%; transform: translateY(-50%); font-size: 40px; }
+    .lightbox .prev { left: 8px; }
+    .lightbox .next { right: 8px; }
+    @media (max-width: 600px) {
+      .lightbox .step { font-size: 30px; }
+    }
     footer {
       margin-top: 40px;
       font-size: 12px;
@@ -242,7 +346,7 @@ const tabs = [
   </style>
 </head>
 <body>
-  <main>
+  <main class={wide ? "wide" : undefined}>
     <nav class="tabs" aria-label="Sections">
       {tabs.map((tab) => (
         <a href={tab.href} aria-current={here === tab.href ? "page" : undefined}>{tab.label}</a>
