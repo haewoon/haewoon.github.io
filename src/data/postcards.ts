@@ -56,4 +56,18 @@ export const postcards: Postcard[] = [
     note: "맛있었던 부타동",
     noteEn: "Butadon, and it was delicious.",
   },    
+  {
+    file: "202506-Obihiro-Banei-Hokkaido.png",
+    place: "Obihiro, Hokkaido, Japan",
+    date: "2025-06",
+    note: "말들이 정말 힘들게 썰매를 끌던 반에이 경마",
+    noteEn: "Banei racing, where the horses strained to haul their sleds.",
+  },    
+  {
+    file: "202506-Unidon-Sapporo.png",
+    place: "Sapporo, Hokkaido, Japan",
+    date: "2025-06",
+    note: "바훈우니가 없었던게 아쉬웠지만 그래도 맛있던 우니동",
+    noteEn: "No bafun uni that day — a shame, but the unidon was still delicious.",
+  },   
 ];
