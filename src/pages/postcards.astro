@@ -35,6 +35,16 @@ const entries = await Promise.all(
       return { ...card, image, full: full.src };
     }),
 );
+
+// Entries are already newest-first, so grouping keeps years in descending order.
+const byYear = new Map<string, typeof entries>();
+for (const entry of entries) {
+  const year = entry.date.slice(0, 4);
+  const bucket = byYear.get(year);
+  if (bucket) bucket.push(entry);
+  else byYear.set(year, [entry]);
+}
+const years = [...byYear.keys()];
 ---
 
 <Base
@@ -48,29 +58,38 @@ const entries = await Promise.all(
     Places I have been, redrawn as illustrations.
   </p>
 
-  <ul class="gallery">
-    {entries.map(({ image, full, place, date, note, noteEn }) => (
-      <li>
-        <button
-          type="button"
-          class="shot"
-          data-full={full}
-          data-place={place}
-          data-when={monthYear(date)}
-          data-note={note}
-          data-note-en={noteEn}
-        >
-          <Image src={image} alt={noteEn || place} widths={[300, 600]} sizes="(max-width: 699px) 45vw, 280px" />
-        </button>
-        <p class="caption">
-          <span class="where">{place}</span>
-          <span class="when">{monthYear(date)}</span>
-          {note && <span class="note" lang="ko">{note}</span>}
-          {noteEn && <span class="note-en">{noteEn}</span>}
-        </p>
-      </li>
-    ))}
-  </ul>
+  <nav class="year-index" aria-label="Years">
+    {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
+  </nav>
+
+  {years.map((year) => (
+    <section class="year">
+      <h2 class="year-heading" id={`y${year}`}>{year}</h2>
+      <ul class="gallery">
+        {byYear.get(year)!.map(({ image, full, place, date, note, noteEn }) => (
+        <li>
+          <button
+            type="button"
+            class="shot"
+            data-full={full}
+            data-place={place}
+            data-when={monthYear(date)}
+            data-note={note}
+            data-note-en={noteEn}
+          >
+            <Image src={image} alt={noteEn || place} widths={[300, 600]} sizes="(max-width: 699px) 45vw, 280px" />
+          </button>
+          <p class="caption">
+            <span class="where">{place}</span>
+            <span class="when">{monthYear(date)}</span>
+            {note && <span class="note" lang="ko">{note}</span>}
+            {noteEn && <span class="note-en">{noteEn}</span>}
+          </p>
+        </li>
+      ))}
+      </ul>
+    </section>
+  ))}
 
   <dialog class="lightbox" aria-label="Postcard">
     <button type="button" class="close" aria-label="Close">&times;</button>

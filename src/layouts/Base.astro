@@ -204,6 +204,34 @@ const tabs = [
       margin: 0 0 12px;
     }
     main.wide { max-width: 880px; }
+    .year-index {
+      display: flex;
+      gap: 14px;
+      margin: 0 0 30px;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+    .year-index a {
+      color: var(--ink-faint);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .year-index a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+    .year-heading {
+      font-family: "Spectral", "Newsreader", Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+      /* Keep the heading clear of the top edge when jumped to. */
+      scroll-margin-top: 24px;
+    }
+    .year + .year { margin-top: 40px; }
     .gallery {
       list-style: none;
       margin: 0 0 28px;

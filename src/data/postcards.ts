@@ -69,5 +69,19 @@ export const postcards: Postcard[] = [
     date: "2025-06",
     note: "바훈우니가 없었던게 아쉬웠지만 그래도 맛있던 우니동",
     noteEn: "No bafun uni that day — a shame, but the unidon was still delicious.",
-  },   
+  },  
+  {
+    file: "202506-Upopoy-Shiraoi.png",
+    place: "Upopoy, Hokkaido, Japan",
+    date: "2025-06",
+    note: "우포포이에서 아이누족 전통 의상을 입은 지선",
+    noteEn: "Jisun in traditional Ainu dress at Upopoy.",
+  },     
+  {
+    file: "202506-Farm-Tomita-Hokkaido.png",
+    place: "Furano, Hokkaido, Japan",
+    date: "2025-06",
+    note: "팜 토미타에서 라벤다맛 아이스크림을 먹으며",
+    noteEn: "Lavender ice cream at Farm Tomita.",
+  },       
 ];
