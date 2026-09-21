@@ -72,7 +72,7 @@ export const postcards: Postcard[] = [
   },  
   {
     file: "202506-Upopoy-Shiraoi.png",
-    place: "Upopoy, Hokkaido, Japan",
+    place: "Shiraoi, Hokkaido, Japan",
     date: "2025-06",
     note: "우포포이에서 아이누족 전통 의상을 입은 지선",
     noteEn: "Jisun in traditional Ainu dress at Upopoy.",
