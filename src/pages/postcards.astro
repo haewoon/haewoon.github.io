@@ -15,6 +15,10 @@ const MONTHS = [
   "July", "August", "September", "October", "November", "December",
 ];
 
+// Dates carry the day so same-month cards sort predictably; only the month
+// reaches the page.
+const DATE = /^\d{4}-\d{2}-\d{2}$/;
+
 function monthYear(date: string) {
   const [year, month] = date.split("-");
   return `${MONTHS[Number(month) - 1]} ${year}`;
@@ -24,6 +28,11 @@ const entries = await Promise.all(
   [...postcards]
     .sort((a, b) => b.date.localeCompare(a.date))
     .map(async (card) => {
+      if (!DATE.test(card.date)) {
+        throw new Error(
+          `postcards.ts has date "${card.date}" for ${card.file}; expected YYYY-MM-DD.`,
+        );
+      }
       const image = files[`../postcards/${card.file}`]?.default;
       if (!image) {
         throw new Error(
