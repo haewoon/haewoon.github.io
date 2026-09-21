@@ -102,7 +102,7 @@ export const postcards: Postcard[] = [
   },        
   {
     file: "20250623-Lake-Toya-Hokkaido.png",
-    place: "Lake Toya, Hokkaido, Japan",
+    place: "Toyako, Hokkaido, Japan",
     date: "2025-06-23",
     note: "몇 년만에 다시 간 토야 호수 앞에 새롭게 글자 간판이 생겨서 온 가족이 O를 만듬",
     noteEn: "Back at Lake Toya after a few years. A new letter sign had gone up, so the whole family made the O.",
