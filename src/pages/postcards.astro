@@ -18,6 +18,9 @@ const MONTHS = [
 // Dates carry the day so same-month cards sort predictably; only the month
 // reaches the page.
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
+// Files named YYYYMMDD-... must agree with their date, so a copied entry that
+// kept the wrong day fails here rather than quietly sorting to the wrong spot.
+const DATED_FILE = /^(\d{4})(\d{2})(\d{2})-/;
 
 function monthYear(date: string) {
   const [year, month] = date.split("-");
@@ -32,6 +35,15 @@ const entries = await Promise.all(
         throw new Error(
           `postcards.ts has date "${card.date}" for ${card.file}; expected YYYY-MM-DD.`,
         );
+      }
+      const named = DATED_FILE.exec(card.file);
+      if (named) {
+        const fromName = `${named[1]}-${named[2]}-${named[3]}`;
+        if (fromName !== card.date) {
+          throw new Error(
+            `${card.file} is named for ${fromName} but its date is ${card.date}.`,
+          );
+        }
       }
       const image = files[`../postcards/${card.file}`]?.default;
       if (!image) {

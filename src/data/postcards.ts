@@ -145,7 +145,7 @@ export const postcards: Postcard[] = [
   {
     file: "20250603-Jeonju-Hanok.png",
     place: "Jeonju, Korea",
-    date: "2025-06-06",
+    date: "2025-06-03",
     note: "전주 한옥 마을. 경주에 비하면 뭔가 좀 더 관광지스러웠다",
     noteEn: "Jeonju Hanok Village. A little more touristy than Gyeongju, somehow.",
   },        

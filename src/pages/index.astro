@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import scholar from "../data/scholar.json";
 
 const title = "Haewoon Kwak";
 const description =
@@ -58,11 +59,11 @@ const description =
 
     <p class="scholar-line">
       <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
-        <strong data-stat="citations">23,195</strong> citations
+        <strong>{scholar.citations.toLocaleString("en-US")}</strong> citations
         <span aria-hidden="true" class="sep">·</span>
-        <strong data-stat="h_index">49</strong> h-index
+        <strong>{scholar.h_index}</strong> h-index
       </a>
-      <span class="updated">(<span data-stat="updated">September 2026</span>)</span>
+      <span class="updated">({scholar.updated})</span>
     </p>
 
     <nav class="links" aria-label="Primary">
