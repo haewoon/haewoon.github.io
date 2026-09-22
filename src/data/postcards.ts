@@ -135,4 +135,18 @@ export const postcards: Postcard[] = [
     note: "뚝섬 한강 공원에서 친구들과 아이들과 유유자적과 시끌벅적 사이의 어딘가를 보낸 하루",
     noteEn: "A day at Ttukseom Hangang Park with friends and their kids, somewhere between calm and clamor.",
   },    
+  {
+    file: "20250606-Seoul-Grand-Park.png",
+    place: "Gwacheon, Korea",
+    date: "2025-06-06",
+    note: "서울대공원. 호수 위로 지나가는 리프트를 폴라로이드로 보는 느낌",
+    noteEn: "Seoul Grand Park. The chairlift crossing the lake, framed like a Polaroid.",
+  },      
+  {
+    file: "20250603-Jeonju-Hanok.png",
+    place: "Jeonju, Korea",
+    date: "2025-06-06",
+    note: "전주 한옥 마을. 경주에 비하면 뭔가 좀 더 관광지스러웠다",
+    noteEn: "Jeonju Hanok Village. A little more touristy than Gyeongju, somehow.",
+  },        
 ];
