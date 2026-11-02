@@ -4,7 +4,7 @@ import scholar from "../data/scholar.json";
 
 const title = "Haewoon Kwak | Computational Social Scientist";
 const description =
-  "Haewoon Kwak studies online and AI-mediated behavior, from digital platforms and human practices to social dynamics among AI agents.";
+  "Haewoon Kwak studies online and AI-mediated behavior, including fairness in AI judgment, from digital platforms and human practices to social dynamics among AI agents.";
 
 const researchLayers = [
   {
@@ -16,8 +16,8 @@ const researchLayers = [
   {
     number: "02",
     title: "AI in human practice",
-    question: "What changes when AI becomes ordinary infrastructure for judgment and action?",
-    detail: "AI mediation · beliefs · culture",
+    question: "What changes—and who is treated differently—when AI becomes ordinary infrastructure for judgment and action?",
+    detail: "AI mediation · fairness · beliefs · culture",
   },
   {
     number: "03",
@@ -36,6 +36,15 @@ const selectedWork = [
       "Tests when explicit leadership helps multi-agent LLM teams recover from an initially wrong majority.",
     href: "https://arxiv.org/abs/2606.19111",
     layer: "Agent societies",
+  },
+  {
+    year: "2026",
+    venue: "Findings of EMNLP",
+    title: "Same Symptoms, Different Severity?",
+    description:
+      "Shows how gendered cues shift LLM depression-severity judgments and introduces a symptom-grounded mitigation.",
+    href: "https://aclanthology.org/2026.findings-emnlp.1031/",
+    layer: "Fairness & safety",
   },
   {
     year: "2026",
@@ -139,8 +148,8 @@ const selectedWork = [
       <p class="eyebrow">Selected work</p>
       <h2 id="selected-heading">A research arc, not just a paper list</h2>
       <p>
-        Four studies that mark the path from measuring a new platform to
-        examining AI as both social infrastructure and social actor.
+        Five studies that mark the path from measuring a new platform to
+        examining AI as social infrastructure, consequential judge, and social actor.
       </p>
     </div>
 
