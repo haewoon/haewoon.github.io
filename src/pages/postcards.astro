@@ -73,11 +73,17 @@ const years = [...byYear.keys()];
   description="Places Haewoon Kwak has been, drawn as illustrations."
   wide
 >
-  <h1 class="page-title">Postcards</h1>
-
-  <p class="bio">
-    Places I have been, redrawn as illustrations.
-  </p>
+  <header class="postcard-hero">
+    <div>
+      <p class="eyebrow">Visual field notes</p>
+      <h1 class="page-title">Postcards</h1>
+      <p class="intro">Places I have been, redrawn as illustrations.</p>
+    </div>
+    <p class="archive-meta">
+      <strong>{entries.length}</strong>
+      <span>illustrations<br />{years.at(-1)}–{years[0]}</span>
+    </p>
+  </header>
 
   <nav class="year-index" aria-label="Years">
     {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
@@ -85,7 +91,10 @@ const years = [...byYear.keys()];
 
   {years.map((year) => (
     <section class="year">
-      <h2 class="year-heading" id={`y${year}`}>{year}</h2>
+      <h2 class="year-heading" id={`y${year}`}>
+        <span>{year}</span>
+        <span class="year-count">{byYear.get(year)!.length} postcards</span>
+      </h2>
       <ul class="gallery">
         {byYear.get(year)!.map(({ image, full, place, date, note, noteEn }) => (
         <li>
@@ -127,6 +136,252 @@ const years = [...byYear.keys()];
     </figure>
   </dialog>
 </Base>
+
+<style>
+  :global(main.wide) {
+    max-width: 1080px;
+  }
+
+  .postcard-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px;
+    align-items: end;
+    padding: 44px 0 64px;
+    border-bottom: 1px solid #b9c8d4;
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    color: #d43c57;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .page-title {
+    margin: 0;
+    color: #0b1f33;
+    font-size: 64px;
+    font-weight: 650;
+    line-height: normal;
+  }
+
+  .intro {
+    max-width: 520px;
+    margin: 22px 0 0;
+    color: #506174;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .archive-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 120px;
+    margin: 0;
+    padding-left: 20px;
+    border-left: 3px solid #d43c57;
+    color: #68798a;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .archive-meta strong {
+    color: #0b1f33;
+    font-size: 32px;
+    font-weight: 650;
+    line-height: normal;
+  }
+
+  :global(.year-index) {
+    gap: 0;
+    margin: 32px 0 72px;
+    padding: 6px;
+    background: #0b1f33;
+  }
+
+  :global(.year-index a) {
+    min-width: 64px;
+    padding: 10px 14px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+  }
+
+  :global(.year-index a:hover) {
+    background: #315ff4;
+    border-bottom-color: transparent;
+    color: #ffffff;
+  }
+
+  :global(.year-heading) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom-color: #b9c8d4;
+    color: #0b1f33;
+    font-size: 32px;
+    font-weight: 650;
+    line-height: normal;
+  }
+
+  .year-count {
+    color: #7b8998;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  :global(.year + .year) {
+    margin-top: 80px;
+  }
+
+  :global(.gallery) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 24px;
+    margin-bottom: 0;
+  }
+
+  :global(.gallery > li) {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #cbd7e0;
+    box-shadow: 5px 5px 0 rgba(49, 95, 244, 0.06);
+  }
+
+  :global(.shot) {
+    border-radius: 0;
+    border-bottom: 1px solid #cbd7e0;
+  }
+
+  :global(.shot img) {
+    transition: filter 160ms ease, transform 160ms ease;
+  }
+
+  :global(.shot:hover img) {
+    filter: saturate(1.08) contrast(1.02);
+    opacity: 1;
+    transform: scale(1.015);
+  }
+
+  :global(.caption) {
+    margin: 0;
+    padding: 16px;
+    color: #506174;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  :global(.caption .where) {
+    display: block;
+    color: #0b1f33;
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+
+  :global(.caption .when) {
+    display: block;
+    margin: 2px 0 12px;
+    color: #d43c57;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  :global(.caption .note) {
+    color: #405469;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  :global(.caption .note-en) {
+    margin-top: 4px;
+    color: #7b8998;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  :global(.lightbox::backdrop) {
+    background: rgba(5, 18, 30, 0.94);
+  }
+
+  :global(.lightbox) {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    background: rgba(5, 18, 30, 0.94);
+  }
+
+  :global(.lightbox figcaption) {
+    color: #edf3f7;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  :global(.lightbox .close),
+  :global(.lightbox .step) {
+    color: #ffffff;
+  }
+
+  @media (max-width: 760px) {
+    .postcard-hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 28px 0 48px;
+    }
+
+    .page-title {
+      font-size: 48px;
+    }
+
+    .archive-meta {
+      justify-self: start;
+    }
+
+    :global(.year-index) {
+      margin-bottom: 56px;
+    }
+
+    :global(.gallery) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 14px;
+    }
+  }
+
+  @media (max-width: 440px) {
+    :global(.caption) {
+      padding: 14px;
+    }
+
+    :global(.caption .where) {
+      font-size: 14px;
+    }
+
+    :global(.caption .note) {
+      font-size: 12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.shot img) {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   const dialog = document.querySelector<HTMLDialogElement>("dialog.lightbox")!;

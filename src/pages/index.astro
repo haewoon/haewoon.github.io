@@ -2,74 +2,566 @@
 import Base from "../layouts/Base.astro";
 import scholar from "../data/scholar.json";
 
-const title = "Haewoon Kwak";
+const title = "Haewoon Kwak | Computational Social Scientist";
 const description =
-  "Haewoon Kwak \u2014 Associate Professor at the Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington. Co-director of SoDA Lab.";
+  "Haewoon Kwak studies online and AI-mediated behavior, from digital platforms and human practices to social dynamics among AI agents.";
+
+const researchLayers = [
+  {
+    number: "01",
+    title: "Online platforms",
+    question: "How do people organize, share information, and exercise influence at scale?",
+    detail: "Networks · information diffusion · public discourse",
+  },
+  {
+    number: "02",
+    title: "AI in human practice",
+    question: "What changes when AI becomes ordinary infrastructure for judgment and action?",
+    detail: "AI mediation · beliefs · culture",
+  },
+  {
+    number: "03",
+    title: "Societies of AI agents",
+    question: "Which social dynamics emerge when AI agents coordinate, lead, and form norms?",
+    detail: "Multi-agent systems · leadership · norms",
+  },
+];
+
+const selectedWork = [
+  {
+    year: "2026",
+    venue: "TMLR",
+    title: "Leadership as Coordination Control",
+    description:
+      "Tests when explicit leadership helps multi-agent LLM teams recover from an initially wrong majority.",
+    href: "https://arxiv.org/abs/2606.19111",
+    layer: "Agent societies",
+  },
+  {
+    year: "2026",
+    venue: "AIES",
+    title: "When AI Becomes Routine",
+    description:
+      "Traces how AI became embedded, and increasingly invisible, across a decade of Korean Go commentary.",
+    href: "https://arxiv.org/abs/2607.28332",
+    layer: "AI in practice",
+  },
+  {
+    year: "2025",
+    venue: "Nature Human Behaviour",
+    title: "A Semantic Embedding Space for Human Beliefs",
+    description:
+      "Uses language models and online debates to map how beliefs cohere and which beliefs people adopt next.",
+    href: "https://www.nature.com/articles/s41562-025-02228-z",
+    layer: "Beliefs",
+  },
+  {
+    year: "2010",
+    venue: "The Web Conference",
+    title: "What is Twitter, a Social Network or a News Media?",
+    description:
+      "Characterizes the topology and information dynamics of early Twitter at whole-platform scale.",
+    href: "https://doi.org/10.1145/1772690.1772751",
+    layer: "Online platforms",
+  },
+];
 ---
 
-<Base title={title} description={description}>
-    <img class="photo" src="/img/illustration.png" alt="Illustrated portrait of Haewoon Kwak" width="96" height="96" />
+<Base title={title} description={description} wide>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Computational social scientist</p>
+      <h1>I study how people and AI shape one another across networked public life.</h1>
+      <p class="dek">
+        My work follows social systems from online platforms, through everyday
+        AI-mediated practice, to emerging societies of AI agents.
+      </p>
+      <div class="hero-actions" aria-label="Primary links">
+        <a class="primary-action" href="#research-map">Explore the research</a>
+        <a href="/PDFs/haewoon_CV.pdf">Read my CV <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
 
-    <h1>Haewoon Kwak</h1>
+    <aside class="identity" aria-label="About Haewoon Kwak">
+      <div class="identity-head">
+        <img src="/img/illustration.png" alt="Illustrated portrait of Haewoon Kwak" width="96" height="96" />
+        <div>
+          <p class="identity-name">Haewoon Kwak</p>
+          <p>Associate Professor</p>
+        </div>
+      </div>
+      <p class="affiliation">
+        Luddy School of Informatics, Computing, and Engineering<br />
+        Indiana University Bloomington
+      </p>
+      <p class="lab-line">
+        Co-director of <a href="https://soda-labo.github.io/">SoDA Lab</a>
+        with <a href="https://jisun.me">Jisun An</a>
+      </p>
+      <div class="metrics">
+        <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
+          <strong>{scholar.citations.toLocaleString("en-US")}</strong>
+          <span>citations</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
+          <strong>{scholar.h_index}</strong>
+          <span>h-index</span>
+        </a>
+      </div>
+      <p class="metrics-date">Google Scholar · {scholar.updated}</p>
+    </aside>
+  </header>
 
-    <p class="role">
-      Associate Professor, Luddy School of Informatics, Computing, and Engineering,
-      Indiana University Bloomington
-    </p>
+  <section class="research-map" id="research-map" aria-labelledby="research-heading">
+    <div class="section-intro">
+      <p class="eyebrow">Research map</p>
+      <h2 id="research-heading">One question, across three connected layers</h2>
+      <p>
+        How can we understand social behavior well enough to build more
+        trustworthy online public spaces?
+      </p>
+    </div>
 
-    <p class="bio">
-      I co-direct
-      <a href="https://soda-labo.github.io/">SoDA Lab</a>
-      with <a href="https://jisun.me">Jisun An</a>, where we study
-      <em>how people behave online and how AI is reshaping those spaces</em>.
-    </p>
+    <ol class="layers">
+      {researchLayers.map((layer) => (
+        <li>
+          <div class="layer-number" aria-hidden="true">{layer.number}</div>
+          <h3>{layer.title}</h3>
+          <p class="layer-question">{layer.question}</p>
+          <p class="layer-detail">{layer.detail}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
 
-    <p class="bio">
-      I study social and cultural phenomena through large-scale data and
-      computational methods. My research often begins with a simple observation
-      about how people behave, interact, or organize, and asks whether it holds
-      at scale. My recent work extends this approach to AI, examining both how AI
-      reshapes human behavior and how social dynamics emerge among AI agents.
-    </p>
+  <section class="selected" aria-labelledby="selected-heading">
+    <div class="section-intro selected-intro">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="selected-heading">A research arc, not just a paper list</h2>
+      <p>
+        Four studies that mark the path from measuring a new platform to
+        examining AI as both social infrastructure and social actor.
+      </p>
+    </div>
 
-    <p class="section-label">Selected work</p>
+    <ol class="paper-list">
+      {selectedWork.map((paper) => (
+        <li>
+          <a href={paper.href}>
+            <span class="paper-meta">
+              <span>{paper.year}</span>
+              <span>{paper.venue}</span>
+            </span>
+            <span class="paper-body">
+              <span class="paper-title">{paper.title}</span>
+              <span class="paper-description">{paper.description}</span>
+            </span>
+            <span class="paper-layer">{paper.layer}</span>
+            <span class="paper-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
 
-    <ul class="work">
-      <li>
-        <a href="https://doi.org/10.1145/1772690.1772751">What is Twitter, a Social Network or a News Media?</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> WWW 2010</span>
-        <span class="note">How a new online platform departed from the social networks we knew.</span>
-      </li>
-      <li>
-        <a href="https://arxiv.org/abs/2607.28332">When AI Becomes Routine</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> AIES 2026</span>
-        <span class="note">How AI becomes embedded in&mdash;and eventually taken for granted in&mdash;human practice.</span>
-      </li>
-      <li>
-        <a href="https://arxiv.org/abs/2606.19111">Leadership as Coordination Control</a>
-        <span class="venue"><span class="sep" aria-hidden="true">&middot;</span> TMLR 2026</span>
-        <span class="note">How familiar social dynamics reappear, and change, in teams of AI agents.</span>
-      </li>
-    </ul>
-
-    <p class="bio">
-      For papers, news, and openings, visit the lab site. This page is just a
-      quick way to find me.
-    </p>
-
-    <p class="scholar-line">
-      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">
-        <strong>{scholar.citations.toLocaleString("en-US")}</strong> citations
-        <span aria-hidden="true" class="sep">·</span>
-        <strong>{scholar.h_index}</strong> h-index
-      </a>
-      <span class="updated">({scholar.updated})</span>
-    </p>
-
-    <nav class="links" aria-label="Primary">
-      <a href="https://soda-labo.github.io/">SoDA Lab</a>
-      <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">Google Scholar</a>
-      <a href="/PDFs/haewoon_CV.pdf">CV</a>
-      <a href="mailto:hwkwak@iu.edu">Email</a>
-    </nav>
+  <section class="about" aria-labelledby="about-heading">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2 id="about-heading">Large-scale evidence, social questions.</h2>
+    </div>
+    <div class="about-copy">
+      <p>
+        I am an Associate Professor at Indiana University Bloomington. I use
+        large-scale behavioral data, network analysis, natural language
+        processing, and experiments to study how people behave, interact, and
+        organize online, and how those dynamics change when AI enters the
+        system.
+      </p>
+      <p>
+        For the lab's full publication archive, current news, team, and
+        openings, visit <a href="https://soda-labo.github.io/">SoDA Lab</a>.
+      </p>
+      <nav class="contact-links" aria-label="Contact and profiles">
+        <a href="mailto:hwkwak@iu.edu">Email</a>
+        <a href="https://scholar.google.com/citations?user=dcjrz5MAAAAJ">Google Scholar</a>
+        <a href="https://soda-labo.github.io/">SoDA Lab</a>
+        <a href="/PDFs/haewoon_CV.pdf">Curriculum vitae</a>
+      </nav>
+    </div>
+  </section>
 </Base>
+
+<style>
+  :global(main.wide) { max-width: 1080px; }
+  :global(body) {
+    background:
+      linear-gradient(90deg, transparent calc(50% - 540px), rgba(11, 31, 51, 0.06) calc(50% - 540px), rgba(11, 31, 51, 0.06) calc(50% - 539px), transparent calc(50% - 539px)),
+      linear-gradient(90deg, transparent calc(50% + 539px), rgba(11, 31, 51, 0.06) calc(50% + 539px), rgba(11, 31, 51, 0.06) calc(50% + 540px), transparent calc(50% + 540px)),
+      #edf3f7;
+    color: #0b1f33;
+  }
+  :global(:root) {
+    --paper: #edf3f7;
+    --ink: #0b1f33;
+    --ink-soft: #506174;
+    --ink-faint: #7b8998;
+    --rule: #cbd7e0;
+    --accent: #315ff4;
+  }
+  .eyebrow {
+    margin: 0 0 18px;
+    color: #d43c57;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(270px, 0.72fr);
+    gap: clamp(48px, 8vw, 108px);
+    align-items: end;
+    padding: clamp(36px, 7vw, 82px) 0 clamp(64px, 9vw, 112px);
+  }
+  .hero h1 {
+    max-width: 760px;
+    margin: 0;
+    font-family: inherit;
+    font-size: 48px;
+    font-weight: 650;
+    letter-spacing: inherit;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .dek {
+    max-width: 700px;
+    margin: 30px 0 0;
+    color: #506174;
+    font-family: inherit;
+    font-size: 22px;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    align-items: center;
+    margin-top: 34px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .hero-actions a { color: #0b1f33; line-height: normal; text-decoration: none; }
+  .hero-actions a:hover { color: #315ff4; }
+  .hero-actions .primary-action {
+    display: inline-block;
+    padding: 11px 16px;
+    background: #315ff4;
+    color: #ffffff;
+  }
+  .hero-actions .primary-action:hover { background: #2448bd; color: #ffffff; }
+  .identity {
+    position: relative;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #cbd7e0;
+    box-shadow: 8px 8px 0 rgba(49, 95, 244, 0.08);
+  }
+  .identity::before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 46px;
+    height: 3px;
+    background: #d43c57;
+    content: "";
+  }
+  .identity-head { display: flex; gap: 15px; align-items: center; }
+  .identity-head img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #dce6ee;
+  }
+  .identity-head p { margin: 2px 0 0; color: #506174; font-size: 12px; line-height: normal; }
+  .identity-head .identity-name {
+    margin: 0;
+    color: #0b1f33;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 650;
+    line-height: normal;
+  }
+  .affiliation, .lab-line {
+    margin: 20px 0 0;
+    color: #506174;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .lab-line { margin-top: 12px; }
+  .identity a { color: #0b1f33; text-decoration-color: #9aabb9; }
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin: 22px -22px 0;
+    border-top: 1px solid #cbd7e0;
+    border-bottom: 1px solid #cbd7e0;
+    background: #cbd7e0;
+  }
+  .metrics a {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 22px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #0b1f33;
+    text-decoration: none;
+  }
+  .metrics a:hover { background: #ffffff; }
+  .metrics strong {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 650;
+    line-height: normal;
+  }
+  .metrics span {
+    margin-top: 5px;
+    color: #68798a;
+    font-size: 12px;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .metrics-date { margin: 12px 0 0; color: #7b8998; font-size: 12px; line-height: normal; }
+  .research-map, .selected, .about { border-top: 1px solid #b9c8d4; }
+  .research-map { padding: clamp(64px, 9vw, 110px) 0; }
+  .section-intro {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.8fr) minmax(300px, 1.2fr) minmax(250px, 0.8fr);
+    gap: 36px;
+    align-items: start;
+  }
+  .section-intro .eyebrow { margin-top: 9px; }
+  .section-intro h2, .about h2 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 40px;
+    font-weight: 650;
+    letter-spacing: inherit;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .section-intro > p:last-child {
+    margin: 6px 0 0;
+    color: #506174;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .layers {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 62px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .layers::before {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #b9c8d4;
+    content: "";
+  }
+  .layers li { position: relative; padding: 0 34px 0 0; }
+  .layers li + li { padding-left: 34px; border-left: 1px solid #cbd7e0; }
+  .layer-number {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 41px;
+    height: 41px;
+    place-items: center;
+    background: #edf3f7;
+    border: 1px solid #315ff4;
+    border-radius: 50%;
+    color: #315ff4;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .layers h3 {
+    margin: 22px 0 12px;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 650;
+    letter-spacing: inherit;
+    line-height: 1.5;
+  }
+  .layer-question {
+    min-height: 78px;
+    margin: 0;
+    color: #405469;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .layer-detail {
+    margin: 22px 0 0;
+    color: #7b8998;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .selected { padding: clamp(64px, 9vw, 110px) 0; }
+  .selected-intro { margin-bottom: 52px; }
+  .paper-list {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #b9c8d4;
+    list-style: none;
+  }
+  .paper-list li { border-top: 1px solid #b9c8d4; }
+  .paper-list a {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) 120px 24px;
+    gap: 24px;
+    align-items: center;
+    padding: 24px 8px;
+    color: #0b1f33;
+    text-decoration: none;
+    transition: background 120ms ease, padding 120ms ease;
+  }
+  .paper-list a:hover {
+    padding-right: 16px;
+    padding-left: 16px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+  .paper-meta {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 8px;
+    color: #68798a;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .paper-body { display: block; }
+  .paper-title {
+    display: block;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: inherit;
+    line-height: 1.5;
+  }
+  .paper-description {
+    display: block;
+    max-width: 650px;
+    margin-top: 6px;
+    color: #5d6e7f;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .paper-layer {
+    color: #7b8998;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-align: right;
+    text-transform: uppercase;
+  }
+  .paper-arrow { color: #315ff4; font-size: 18px; line-height: normal; text-align: right; }
+  .about {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(340px, 1.1fr);
+    gap: clamp(48px, 10vw, 140px);
+    padding: clamp(64px, 9vw, 110px) 0 36px;
+  }
+  .about .eyebrow { margin-bottom: 22px; }
+  .about-copy > p {
+    margin: 0 0 22px;
+    color: #405469;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #cbd7e0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .contact-links a { color: #0b1f33; text-decoration: none; }
+  .contact-links a:hover { color: #315ff4; }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; align-items: start; }
+    .hero h1 { font-size: 44px; }
+    .section-intro h2, .about h2 { font-size: 36px; }
+    .identity { max-width: 420px; }
+    .section-intro { grid-template-columns: 150px 1fr; }
+    .section-intro > p:last-child { grid-column: 2; }
+    .paper-list a { grid-template-columns: 120px minmax(0, 1fr) 24px; }
+    .paper-layer { display: none; }
+  }
+  @media (max-width: 640px) {
+    :global(body) { padding: 28px 20px; background: #edf3f7; }
+    .hero { gap: 48px; padding: 24px 0 68px; }
+    .hero h1 { font-size: 40px; }
+    .section-intro h2, .about h2 { font-size: 32px; }
+    .dek { margin-top: 24px; font-size: 20px; }
+    .identity { max-width: none; }
+    .section-intro, .about { grid-template-columns: 1fr; gap: 18px; }
+    .section-intro .eyebrow { margin-top: 0; margin-bottom: 2px; }
+    .section-intro > p:last-child { grid-column: auto; margin-top: 4px; }
+    .layers { grid-template-columns: 1fr; gap: 0; margin-top: 42px; }
+    .layers::before {
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 1px;
+      height: auto;
+    }
+    .layers li, .layers li + li { padding: 0 0 36px 68px; border-left: 0; }
+    .layers li:last-child { padding-bottom: 0; }
+    .layer-number { position: absolute; left: 0; }
+    .layers h3 { margin-top: 0; }
+    .layer-question { min-height: auto; }
+    .paper-list a {
+      grid-template-columns: 1fr 24px;
+      gap: 10px 16px;
+      padding: 22px 4px;
+    }
+    .paper-list a:hover { padding-right: 8px; padding-left: 8px; }
+    .paper-meta {
+      grid-column: 1;
+      grid-template-columns: auto auto;
+      justify-content: start;
+    }
+    .paper-body { grid-column: 1; }
+    .paper-arrow {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+    }
+    .about { padding-bottom: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .paper-list a { transition: none; }
+  }
+</style>

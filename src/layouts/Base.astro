@@ -25,25 +25,19 @@ const tabs = [
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;1,400&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
   />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;1,400&display=swap" />
-  </noscript>
   <style is:global>
     :root {
-      --paper: #f7f9fb;
-      --ink: #1a1a1a;
-      --ink-soft: #525252;
-      --ink-faint: #a3a3a3;
-      --rule: #e0e7ec;
-      --accent: oklch(0.55 0.20 250);
+      --paper: #edf3f7;
+      --ink: #0b1f33;
+      --ink-soft: #506174;
+      --ink-faint: #7b8998;
+      --rule: #cbd7e0;
+      --accent: #315ff4;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html, body {
@@ -51,10 +45,11 @@ const tabs = [
       padding: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI",
+      font-family: "Pretendard Variable", Pretendard, system-ui, -apple-system, "Segoe UI",
         "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif;
-      font-size: 17px;
-      line-height: 1.55;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
       -webkit-font-smoothing: antialiased;
     }
     body {
@@ -76,31 +71,31 @@ const tabs = [
       margin: 0 0 28px;
     }
     h1 {
-      font-family: "Spectral", "Newsreader", Georgia, serif;
+      font-family: inherit;
       font-weight: 500;
       font-size: 40px;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      line-height: 1.5;
+      letter-spacing: inherit;
       margin: 0 0 8px;
     }
     .role {
       color: var(--ink-soft);
       margin: 0 0 28px;
-      font-size: 15px;
+      font-size: 14px;
     }
     .bio {
       color: var(--ink-soft);
       margin: 0 0 28px;
     }
     .bio em {
-      font-family: "Spectral", serif;
+      font-family: inherit;
       font-style: italic;
       font-weight: 400;
     }
     .section-label {
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-family: inherit;
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: inherit;
       text-transform: uppercase;
       color: var(--ink-faint);
       margin: 0 0 16px;
@@ -120,7 +115,7 @@ const tabs = [
     }
     .work a:hover { color: var(--accent); border-bottom-color: var(--accent); }
     .work .venue {
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-family: inherit;
       font-size: 12px;
       color: var(--ink-faint);
       white-space: nowrap;
@@ -128,7 +123,7 @@ const tabs = [
     .work .note {
       display: block;
       color: var(--ink-soft);
-      font-size: 15px;
+      font-size: 14px;
       margin-top: 2px;
     }
     a {
@@ -156,7 +151,7 @@ const tabs = [
       margin-left: 6px;
       color: var(--ink-faint);
       font-size: 12px;
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-family: inherit;
     }
     nav.links {
       display: flex;
@@ -164,9 +159,9 @@ const tabs = [
       gap: 8px 16px;
       padding-top: 20px;
       border-top: 1px solid var(--rule);
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-family: inherit;
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: inherit;
       text-transform: uppercase;
     }
     nav.links a {
@@ -179,9 +174,9 @@ const tabs = [
       display: flex;
       gap: 20px;
       margin: 0 0 32px;
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-family: inherit;
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: inherit;
       text-transform: uppercase;
     }
     nav.tabs a {
@@ -196,11 +191,11 @@ const tabs = [
       border-bottom-color: var(--rule);
     }
     .page-title {
-      font-family: "Spectral", "Newsreader", Georgia, serif;
+      font-family: inherit;
       font-weight: 500;
       font-size: 32px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1.5;
+      letter-spacing: inherit;
       margin: 0 0 12px;
     }
     main.wide { max-width: 880px; }
@@ -208,9 +203,9 @@ const tabs = [
       display: flex;
       gap: 14px;
       margin: 0 0 30px;
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      font-family: inherit;
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: inherit;
     }
     .year-index a {
       color: var(--ink-faint);
@@ -220,10 +215,10 @@ const tabs = [
     }
     .year-index a:hover { color: var(--ink); border-bottom-color: var(--rule); }
     .year-heading {
-      font-family: "Spectral", "Newsreader", Georgia, serif;
+      font-family: inherit;
       font-size: 20px;
       font-weight: 500;
-      letter-spacing: -0.01em;
+      letter-spacing: inherit;
       color: var(--ink);
       margin: 0 0 16px;
       padding-bottom: 10px;
@@ -274,14 +269,14 @@ const tabs = [
     }
     .caption {
       margin: 8px 0 0;
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 12px;
+      line-height: 1.5;
       color: var(--ink-soft);
     }
     .caption .where { font-weight: 500; color: var(--ink); }
     .caption .when {
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-      font-size: 11px;
+      font-family: inherit;
+      font-size: 12px;
       color: var(--ink-faint);
       margin-left: 6px;
     }
@@ -333,8 +328,8 @@ const tabs = [
     }
     .lightbox figcaption .where { font-weight: 500; }
     .lightbox figcaption .when {
-      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-      font-size: 11px;
+      font-family: inherit;
+      font-size: 12px;
       opacity: 0.6;
       margin-left: 8px;
     }
@@ -356,7 +351,7 @@ const tabs = [
       color: var(--paper);
       opacity: 0.55;
       cursor: pointer;
-      font-family: "Inter", system-ui, sans-serif;
+      font-family: inherit;
       line-height: 1;
       padding: 12px;
     }
@@ -373,7 +368,7 @@ const tabs = [
       margin-top: 40px;
       font-size: 12px;
       color: var(--ink-faint);
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-family: inherit;
     }
     @media (max-width: 480px) {
       .work .venue {
