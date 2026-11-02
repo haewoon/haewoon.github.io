@@ -4,74 +4,93 @@ import scholar from "../data/scholar.json";
 
 const title = "Haewoon Kwak | Computational Social Scientist";
 const description =
-  "Haewoon Kwak studies online and AI-mediated behavior, including fairness in AI judgment, from digital platforms and human practices to social dynamics among AI agents.";
+  "Haewoon Kwak studies networked public life, AI-mediated judgment, and social dynamics among AI agents.";
 
 const researchLayers = [
   {
     number: "01",
-    title: "Online platforms",
-    question: "How do people organize, share information, and exercise influence at scale?",
-    detail: "Networks · information diffusion · public discourse",
+    relation: "Human ↔ Human",
+    title: "Networked public life",
+    question: "How do people organize, influence one another, and form beliefs in networked environments?",
+    detail: "Platforms · influence · beliefs",
   },
   {
     number: "02",
-    title: "AI in human practice",
-    question: "What changes—and who is treated differently—when AI becomes ordinary infrastructure for judgment and action?",
-    detail: "AI mediation · fairness · beliefs · culture",
+    relation: "Human ↔ AI",
+    title: "AI-mediated practice",
+    question: "How does AI reshape human interpretation and judgment—and whose outcomes change?",
+    detail: "Mediation · judgment · fairness",
   },
   {
     number: "03",
-    title: "Societies of AI agents",
+    relation: "AI ↔ AI",
+    title: "Agent societies",
     question: "Which social dynamics emerge when AI agents coordinate, lead, and form norms?",
-    detail: "Multi-agent systems · leadership · norms",
+    detail: "Coordination · leadership · norms",
   },
 ];
 
-const selectedWork = [
+const selectedWorkGroups = [
   {
-    year: "2026",
-    venue: "TMLR",
-    title: "Leadership as Coordination Control",
-    description:
-      "Tests when explicit leadership helps multi-agent LLM teams recover from an initially wrong majority.",
-    href: "https://arxiv.org/abs/2606.19111",
-    layer: "Agent societies",
+    number: "01",
+    relation: "Human ↔ Human",
+    title: "Networked public life",
+    papers: [
+      {
+        year: "2010",
+        venue: "The Web Conference",
+        title: "What is Twitter, a Social Network or a News Media?",
+        description:
+          "Characterizes the topology and information dynamics of early Twitter at whole-platform scale.",
+        href: "https://doi.org/10.1145/1772690.1772751",
+      },
+      {
+        year: "2025",
+        venue: "Nature Human Behaviour",
+        title: "A Semantic Embedding Space for Human Beliefs",
+        description:
+          "Uses language models and online debates to map how beliefs cohere and which beliefs people adopt next.",
+        href: "https://www.nature.com/articles/s41562-025-02228-z",
+      },
+    ],
   },
   {
-    year: "2026",
-    venue: "Findings of EMNLP",
-    title: "Same Symptoms, Different Severity?",
-    description:
-      "Shows how gendered cues shift LLM depression-severity judgments and introduces a symptom-grounded mitigation.",
-    href: "https://aclanthology.org/2026.findings-emnlp.1031/",
-    layer: "Fairness & safety",
+    number: "02",
+    relation: "Human ↔ AI",
+    title: "AI-mediated practice",
+    papers: [
+      {
+        year: "2026",
+        venue: "AIES",
+        title: "When AI Becomes Routine",
+        description:
+          "Traces how AI became ordinary—and increasingly invisible—infrastructure across a decade of Korean Go commentary.",
+        href: "https://arxiv.org/abs/2607.28332",
+      },
+      {
+        year: "2026",
+        venue: "Findings of EMNLP",
+        title: "Same Symptoms, Different Severity?",
+        description:
+          "Tests whether identical symptoms receive different LLM severity judgments under gendered cues, and develops a symptom-grounded mitigation.",
+        href: "https://aclanthology.org/2026.findings-emnlp.1031/",
+      },
+    ],
   },
   {
-    year: "2026",
-    venue: "AIES",
-    title: "When AI Becomes Routine",
-    description:
-      "Traces how AI became embedded, and increasingly invisible, across a decade of Korean Go commentary.",
-    href: "https://arxiv.org/abs/2607.28332",
-    layer: "AI in practice",
-  },
-  {
-    year: "2025",
-    venue: "Nature Human Behaviour",
-    title: "A Semantic Embedding Space for Human Beliefs",
-    description:
-      "Uses language models and online debates to map how beliefs cohere and which beliefs people adopt next.",
-    href: "https://www.nature.com/articles/s41562-025-02228-z",
-    layer: "Beliefs",
-  },
-  {
-    year: "2010",
-    venue: "The Web Conference",
-    title: "What is Twitter, a Social Network or a News Media?",
-    description:
-      "Characterizes the topology and information dynamics of early Twitter at whole-platform scale.",
-    href: "https://doi.org/10.1145/1772690.1772751",
-    layer: "Online platforms",
+    number: "03",
+    relation: "AI ↔ AI",
+    title: "Agent societies",
+    papers: [
+      {
+        year: "2026",
+        venue: "TMLR",
+        title: "Leadership as Coordination Control",
+        description:
+          "Tests when explicit leadership helps multi-agent LLM teams recover from an initially wrong majority.",
+        href: "https://arxiv.org/abs/2606.19111",
+      },
+    ],
   },
 ];
 ---
@@ -82,8 +101,8 @@ const selectedWork = [
       <p class="eyebrow">Computational social scientist</p>
       <h1>I study how people and AI shape one another across networked public life.</h1>
       <p class="dek">
-        My work follows social systems from online platforms, through everyday
-        AI-mediated practice, to emerging societies of AI agents.
+        My work follows social systems from networked public life, through
+        AI-mediated practice, to emerging agent societies.
       </p>
       <div class="hero-actions" aria-label="Primary links">
         <a class="primary-action" href="#research-map">Explore the research</a>
@@ -124,7 +143,7 @@ const selectedWork = [
   <section class="research-map" id="research-map" aria-labelledby="research-heading">
     <div class="section-intro">
       <p class="eyebrow">Research map</p>
-      <h2 id="research-heading">One question, across three connected layers</h2>
+      <h2 id="research-heading">One question, across three forms of social interaction</h2>
       <p>
         How can we understand social behavior well enough to build more
         trustworthy online public spaces?
@@ -134,7 +153,10 @@ const selectedWork = [
     <ol class="layers">
       {researchLayers.map((layer) => (
         <li>
-          <div class="layer-number" aria-hidden="true">{layer.number}</div>
+          <div class="layer-marker">
+            <span class="layer-number" aria-hidden="true">{layer.number}</span>
+            <span class="layer-relation">{layer.relation}</span>
+          </div>
           <h3>{layer.title}</h3>
           <p class="layer-question">{layer.question}</p>
           <p class="layer-detail">{layer.detail}</p>
@@ -146,31 +168,43 @@ const selectedWork = [
   <section class="selected" aria-labelledby="selected-heading">
     <div class="section-intro selected-intro">
       <p class="eyebrow">Selected work</p>
-      <h2 id="selected-heading">A research arc, not just a paper list</h2>
+      <h2 id="selected-heading">The same three interactions, in practice</h2>
       <p>
-        Five studies that mark the path from measuring a new platform to
-        examining AI as social infrastructure, consequential judge, and social actor.
+        Five studies follow the same movement—from human networks, through
+        human–AI practice, to agent societies.
       </p>
     </div>
 
-    <ol class="paper-list">
-      {selectedWork.map((paper) => (
-        <li>
-          <a href={paper.href}>
-            <span class="paper-meta">
-              <span>{paper.year}</span>
-              <span>{paper.venue}</span>
-            </span>
-            <span class="paper-body">
-              <span class="paper-title">{paper.title}</span>
-              <span class="paper-description">{paper.description}</span>
-            </span>
-            <span class="paper-layer">{paper.layer}</span>
-            <span class="paper-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
+    <div class="work-groups">
+      {selectedWorkGroups.map((group) => (
+        <section class="work-group" aria-labelledby={`work-group-${group.number}`}>
+          <header class="work-group-header">
+            <span class="work-group-number" aria-hidden="true">{group.number}</span>
+            <div class="work-group-heading">
+              <p>{group.relation}</p>
+              <h3 id={`work-group-${group.number}`}>{group.title}</h3>
+            </div>
+          </header>
+          <ol class="paper-list">
+            {group.papers.map((paper) => (
+              <li>
+                <a href={paper.href}>
+                  <span class="paper-meta">
+                    <span>{paper.year}</span>
+                    <span>{paper.venue}</span>
+                  </span>
+                  <span class="paper-body">
+                    <span class="paper-title">{paper.title}</span>
+                    <span class="paper-description">{paper.description}</span>
+                  </span>
+                  <span class="paper-arrow" aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))}
-    </ol>
+    </div>
   </section>
 
   <section class="about" aria-labelledby="about-heading">
@@ -244,7 +278,7 @@ const selectedWork = [
   .dek {
     max-width: 700px;
     margin: 30px 0 0;
-    color: #506174;
+    color: #33485c;
     font-family: inherit;
     font-size: 22px;
     line-height: 1.5;
@@ -302,7 +336,7 @@ const selectedWork = [
   }
   .affiliation, .lab-line {
     margin: 20px 0 0;
-    color: #506174;
+    color: #405469;
     font-size: 12px;
     line-height: 1.5;
   }
@@ -342,7 +376,10 @@ const selectedWork = [
   }
   .metrics-date { margin: 12px 0 0; color: #7b8998; font-size: 12px; line-height: normal; }
   .research-map, .selected, .about { border-top: 1px solid #b9c8d4; }
-  .research-map { padding: clamp(64px, 9vw, 110px) 0; }
+  .research-map {
+    padding: clamp(64px, 9vw, 110px) clamp(24px, 4vw, 48px);
+    background: #f8fafc;
+  }
   .section-intro {
     display: grid;
     grid-template-columns: minmax(180px, 0.8fr) minmax(300px, 1.2fr) minmax(250px, 0.8fr);
@@ -361,7 +398,7 @@ const selectedWork = [
   }
   .section-intro > p:last-child {
     margin: 6px 0 0;
-    color: #506174;
+    color: #33485c;
     font-size: 14px;
     line-height: 1.5;
   }
@@ -385,20 +422,35 @@ const selectedWork = [
   }
   .layers li { position: relative; padding: 0 34px 0 0; }
   .layers li + li { padding-left: 34px; border-left: 1px solid #cbd7e0; }
-  .layer-number {
+  .layer-marker {
     position: relative;
     z-index: 1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: max-content;
+    padding-right: 12px;
+    background: #f8fafc;
+  }
+  .layer-number {
     display: grid;
     width: 41px;
     height: 41px;
     place-items: center;
-    background: #edf3f7;
+    background: #f8fafc;
     border: 1px solid #315ff4;
     border-radius: 50%;
     color: #315ff4;
     font-size: 12px;
     font-weight: 600;
     line-height: normal;
+  }
+  .layer-relation {
+    color: #315ff4;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
   }
   .layers h3 {
     margin: 22px 0 12px;
@@ -411,13 +463,13 @@ const selectedWork = [
   .layer-question {
     min-height: 78px;
     margin: 0;
-    color: #405469;
+    color: #33485c;
     font-size: 14px;
     line-height: 1.5;
   }
   .layer-detail {
     margin: 22px 0 0;
-    color: #7b8998;
+    color: #5f7285;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: inherit;
@@ -426,16 +478,56 @@ const selectedWork = [
   }
   .selected { padding: clamp(64px, 9vw, 110px) 0; }
   .selected-intro { margin-bottom: 52px; }
+  .work-groups { border-top: 1px solid #b9c8d4; }
+  .work-group {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    border-bottom: 1px solid #b9c8d4;
+  }
+  .work-group-header {
+    padding: 28px 28px 28px 8px;
+    border-right: 1px solid #cbd7e0;
+    background: #f1f5f8;
+  }
+  .work-group-number {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 1px solid #315ff4;
+    border-radius: 50%;
+    color: #315ff4;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .work-group-heading { margin-top: 18px; }
+  .work-group-heading p {
+    margin: 0 0 5px;
+    color: #315ff4;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .work-group-header h3 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: inherit;
+    line-height: 1.5;
+  }
   .paper-list {
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #b9c8d4;
+    background: rgba(255, 255, 255, 0.74);
     list-style: none;
   }
-  .paper-list li { border-top: 1px solid #b9c8d4; }
+  .paper-list li + li { border-top: 1px solid #cbd7e0; }
   .paper-list a {
     display: grid;
-    grid-template-columns: 150px minmax(0, 1fr) 120px 24px;
+    grid-template-columns: 150px minmax(0, 1fr) 24px;
     gap: 24px;
     align-items: center;
     padding: 24px 8px;
@@ -446,7 +538,7 @@ const selectedWork = [
   .paper-list a:hover {
     padding-right: 16px;
     padding-left: 16px;
-    background: rgba(255, 255, 255, 0.76);
+    background: #ffffff;
   }
   .paper-meta {
     display: grid;
@@ -472,18 +564,9 @@ const selectedWork = [
     display: block;
     max-width: 650px;
     margin-top: 6px;
-    color: #5d6e7f;
+    color: #44576a;
     font-size: 12px;
     line-height: 1.5;
-  }
-  .paper-layer {
-    color: #7b8998;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: inherit;
-    line-height: normal;
-    text-align: right;
-    text-transform: uppercase;
   }
   .paper-arrow { color: #315ff4; font-size: 18px; line-height: normal; text-align: right; }
   .about {
@@ -495,7 +578,7 @@ const selectedWork = [
   .about .eyebrow { margin-bottom: 22px; }
   .about-copy > p {
     margin: 0 0 22px;
-    color: #405469;
+    color: #33485c;
     font-family: inherit;
     font-size: 18px;
     line-height: 1.5;
@@ -522,8 +605,8 @@ const selectedWork = [
     .identity { max-width: 420px; }
     .section-intro { grid-template-columns: 150px 1fr; }
     .section-intro > p:last-child { grid-column: 2; }
-    .paper-list a { grid-template-columns: 120px minmax(0, 1fr) 24px; }
-    .paper-layer { display: none; }
+    .work-group { grid-template-columns: 180px minmax(0, 1fr); }
+    .paper-list a { grid-template-columns: 110px minmax(0, 1fr) 24px; gap: 18px; }
   }
   @media (max-width: 640px) {
     :global(body) { padding: 28px 20px; background: #edf3f7; }
@@ -545,9 +628,19 @@ const selectedWork = [
     }
     .layers li, .layers li + li { padding: 0 0 36px 68px; border-left: 0; }
     .layers li:last-child { padding-bottom: 0; }
-    .layer-number { position: absolute; left: 0; }
-    .layers h3 { margin-top: 0; }
+    .layer-marker { margin-left: -68px; }
+    .layers h3 { margin-top: 14px; }
     .layer-question { min-height: auto; }
+    .work-group { grid-template-columns: 1fr; }
+    .work-group-header {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 22px 4px 16px;
+      border-right: 0;
+      border-bottom: 1px solid #cbd7e0;
+    }
+    .work-group-heading { margin-top: 0; }
     .paper-list a {
       grid-template-columns: 1fr 24px;
       gap: 10px 16px;
